@@ -7,6 +7,7 @@ int w, h;
 // inRange variable and click to change
 
 PImage river;
+PImage grass;
 
 void setup(){
   background(169,206,150);
@@ -14,21 +15,31 @@ void setup(){
   w = width/size;
   h = height/size;
   river = loadImage("Water.png");
+  grass = loadImage("Grass.png");
 }
 
 void draw(){
+  drawGrass();
   drawRiver();
   drawGrid();
 }
 
 void drawRiver(){
-  for(int x = 0 ; x < width; x+= size){
-  for(int y = 546; y < height; y += size){
-    
-    image(river, x, y, 128, 32);
-  }
+  for(int x = 0 ; x < width; x+= 256){
+    for(int y = 546; y < height; y += 64){
+      image(river, x, y, 256, 64);
+    }
   }
 }
+
+void drawGrass(){
+  for(int x = 0 ; x < width; x+= 32){
+    for(int y = 0; y < 546; y += 32){
+      image(grass, x, y, 96, 32);
+    }
+  }
+}
+
 
 void drawGrid(){
   for(int x = 0; x < width; x += size){ 
