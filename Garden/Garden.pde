@@ -9,6 +9,7 @@ PImage river;
 PImage grass;
 PImage border;
 Player me;
+int speed = 20;
 
 void setup(){
   background(169,206,150);
@@ -26,10 +27,11 @@ void draw(){
   drawGrass();
   drawGrid();
   drawPlayer();
+  frameRate(10);
 }
 
 void drawPlayer(){
-  me.update();
+  me.drawPlayer();
 }
 
 void drawRiver(){
