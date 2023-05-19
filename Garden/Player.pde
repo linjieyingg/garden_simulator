@@ -16,14 +16,4 @@ public class Player{
   else return false;
   }
 
-  void keyPressed (){
-    if(key == 'W' || key == 'w' )
-      dir = new PVector(0, -1);
-    if(key == 'S' || key == 's')
-      dir = new PVector(0,1);
-    if(key == 'A' || key == 'a')
-      dir = new PVector(-1, 0);
-    if(key == 'D' || key == 'd')
-      dir = new PVector(1,0);
-  }
 }

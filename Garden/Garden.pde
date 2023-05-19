@@ -50,4 +50,14 @@ void drawGrid(){
     stroke(255);
     line(0,y,width, y);
   }
+  
+void keyPressed (){
+    if(key == 'W' || key == 'w' )
+      dir = new PVector(0, -1);
+    if(key == 'S' || key == 's')
+      dir = new PVector(0,1);
+    if(key == 'A' || key == 'a')
+      dir = new PVector(-1, 0);
+    if(key == 'D' || key == 'd')
+      dir = new PVector(1,0);
 }
