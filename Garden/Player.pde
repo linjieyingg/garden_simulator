@@ -25,9 +25,10 @@ public class Player{
   else return false;
   }
   
+
   void direction(int d){
-    if( d == 0 ) { //up
-      dir = new PVector(0,-1);
+    if( d == 0 ) { 
+      dir = new PVector(0,-1); //up
     }
     if( d == 1) 
       dir = new PVector(0,1); //down

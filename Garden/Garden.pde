@@ -4,11 +4,11 @@ String[] items = new String[]{"nothing", "seed", "water", "shovel"};
 int curItem;
 int size = 32;
 int w, h;
-// inRange variable and click to change
 
 PImage river;
 PImage grass;
 PImage border;
+Player me;
 
 void setup(){
   background(169,206,150);
@@ -18,6 +18,7 @@ void setup(){
   river = loadImage("Water.png");
   grass = loadImage("Grass.png");
   border = loadImage("grassborder.png");
+  me = new Player();
 }
 
 void draw(){
@@ -28,7 +29,6 @@ void draw(){
 }
 
 void drawPlayer(){
-  Player me = new Player();
   me.update();
 }
 
@@ -63,15 +63,14 @@ void drawGrid(){
   }
 }
 
-/*
+
 void keyPressed (){
   if(key == 'W' || key == 'w' )
-    dir = new PVector(0, -1);
+    me.direction(0); // up
   if(key == 'S' || key == 's')
-    //dir = new PVector(0,1);
+    me.direction(1); // down
   if(key == 'A' || key == 'a')
-    //dir = new PVector(-1, 0);
+    me.direction(2); //left
   if(key == 'D' || key == 'd')
-    //dir = new PVector(1,0);
+    me.direction(3); //right
 }
-*/
