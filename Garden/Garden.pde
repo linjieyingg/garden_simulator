@@ -63,6 +63,10 @@ void drawGrid(){
   }
 }
 
+void mouseClicked(){
+    //*MAKE THE GRASS INTO DIRT
+    //if (grass[mouse.x, mouse.y] == still grass)
+}
 
 void keyPressed (){
   if(key == 'W' || key == 'w' )
