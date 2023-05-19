@@ -15,8 +15,14 @@ public class Player{
     
   }
   
+  void drawPlayer(){
+    // change image based on direction
+    image(charImg[curImg], pos.x, pos.y, 32, 32); 
+  }
+  
   void update(){
-    image(charImg[curImg], pos.x, pos.y, 32, 32);
+    // calculate new pos of player
+    pos = new PVector(pos.x + (dir.x * size), pos.y + (dir.y * size));
   }
   
   boolean inRange(){
@@ -29,13 +35,24 @@ public class Player{
   void direction(int d){
     if( d == 0 ) { 
       dir = new PVector(0,-1); //up
+      curImg = 0; 
+      update();
     }
-    if( d == 1) 
+    if( d == 1) {
       dir = new PVector(0,1); //down
-    if( d == 2)
+      curImg = 1;
+      update();
+    }
+    if( d == 2){
       dir = new PVector(-1,0); //left
-    if( d == 3)
+      curImg = 2;
+      update();
+    }
+    if( d == 3){
       dir = new PVector(1,0); //right
+      curImg = 3;
+      update();
+    }
   }
 
 }
