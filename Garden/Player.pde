@@ -7,11 +7,16 @@ public class Player{
   int size = 32;
   int h,w;
   
+  
   public Player(){
     w = width/size;
     h = height/size;
     curImg = 1;
     pos = new PVector(size * 10, 10 * size);
+    
+  }
+  
+  void useItem(){
     
   }
   

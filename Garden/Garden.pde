@@ -9,7 +9,8 @@ PImage river;
 PImage grass;
 PImage border;
 Player me;
-int speed = 20;
+
+PImage[] itemPics ; 
 
 void setup(){
   background(169,206,150);
@@ -20,6 +21,8 @@ void setup(){
   grass = loadImage("Grass.png");
   border = loadImage("grassborder.png");
   me = new Player();
+  itemPics = new PImage[]{loadImage("hoe.png"),loadImage("water bucket.png"),
+                              loadImage("fruit seeds.png")};
 }
 
 void draw(){
@@ -27,7 +30,16 @@ void draw(){
   drawGrass();
   drawGrid();
   drawPlayer();
+  drawEquipped();
   frameRate(10);
+}
+
+void drawEquipped(){
+  //fill(255);
+  //rect(0, 576 , 192 , 64);
+  image(itemPics[0], 0, 576, 64, 64);
+  image(itemPics[1], 64, 576, 64, 64);
+  image(itemPics[2], 134, 582, 52, 52);
 }
 
 void drawPlayer(){
@@ -79,4 +91,6 @@ void keyPressed (){
     me.direction(2); //left
   if((key == 'D' || key == 'd') && me.getPos().x < width - size)
     me.direction(3); //right
+  //if(key == '1')
+    
 }
