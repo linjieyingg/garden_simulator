@@ -8,6 +8,7 @@ int w, h;
 
 PImage river;
 PImage grass;
+PImage border;
 
 void setup(){
   background(169,206,150);
@@ -16,18 +17,19 @@ void setup(){
   h = height/size;
   river = loadImage("Water.png");
   grass = loadImage("Grass.png");
+  border = loadImage("grassborder.png");
 }
 
 void draw(){
-  drawGrass();
   drawRiver();
-  drawGrid();
+  drawGrass();
+  //drawGrid();
 }
 
 void drawRiver(){
-  for(int x = 0 ; x < width; x+= 256){
-    for(int y = 546; y < height; y += 64){
-      image(river, x, y, 256, 64);
+  for(int x = 0 ; x < width; x+= 128){
+    for(int y = 546; y < height; y += 32){
+      image(river, x, y, 128, 32);
     }
   }
 }
@@ -37,6 +39,9 @@ void drawGrass(){
     for(int y = 0; y < 546; y += 32){
       image(grass, x, y, 96, 32);
     }
+  }
+  for(int x = 0; x < width; x += 2080){
+    image(border, x, 575, 3000, 11);
   }
 }
 
@@ -50,14 +55,17 @@ void drawGrid(){
     stroke(255);
     line(0,y,width, y);
   }
-  
+}
+
 void keyPressed (){
-    if(key == 'W' || key == 'w' )
-      dir = new PVector(0, -1);
-    if(key == 'S' || key == 's')
-      dir = new PVector(0,1);
-    if(key == 'A' || key == 'a')
-      dir = new PVector(-1, 0);
-    if(key == 'D' || key == 'd')
-      dir = new PVector(1,0);
+  /*
+  if(key == 'W' || key == 'w' )
+    //dir = new PVector(0, -1);
+  if(key == 'S' || key == 's')
+    //dir = new PVector(0,1);
+  if(key == 'A' || key == 'a')
+    //dir = new PVector(-1, 0);
+  if(key == 'D' || key == 'd')
+    //dir = new PVector(1,0);
+   */
 }
