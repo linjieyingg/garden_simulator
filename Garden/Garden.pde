@@ -1,6 +1,7 @@
 int water;
 int seeds;
 String[] items = new String[]{"nothing", "seed", "water", "shovel"};
+Land[][] map = new Land[35][25];
 int curItem;
 int size = 32;
 int w, h;
