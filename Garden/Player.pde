@@ -1,5 +1,6 @@
 public class Player{
-  PImage[] charImg = new PImage[]{"up.png", "down.png", "left.png", "right.png"};  
+  PImage[] charImg = new PImage[]{ loadImage("up.png"), loadImage("down.png"),
+                                  loadImage("left.png"), loadImage("right.png")};  
   int curImg; // to access PImage in the array
   PVector pos; //position of character
   PVector dir = new PVector(0,0);
