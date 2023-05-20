@@ -6,18 +6,38 @@ public class Player{
   PVector dir = new PVector(0,0);
   int size = 32;
   int h,w;
-  
+  int water; // # of plants player can water
+  boolean hoe, can, seed; //equipped status
   
   public Player(){
     w = width/size;
     h = height/size;
     curImg = 1;
     pos = new PVector(size * 10, 10 * size);
-    
+    hoe = can = seed = false; 
   }
   
-  void useItem(){
-    
+  void equip( int hcs){
+    if (hcs == 1)
+      hoe = true;
+    if (hcs == 2)
+      can = true;
+    if (hcs ==3)
+      seed = true;
+  }
+  
+  boolean getHoe(){
+    return hoe;
+  }
+  boolean getCan(){
+   return can; 
+  }
+  boolean getSeed(){
+   return seed; 
+  }
+  
+  void fillWater(){
+    water++;
   }
   
   void drawPlayer(){

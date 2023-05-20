@@ -1,3 +1,6 @@
+//WASD to move 
+//1 to equip hoe, 2 to equip watering can, 3 to equip seed
+//E to fill watering can -- MUST BE NEAR WATER
 int water;
 int seeds;
 String[] items = new String[]{"nothing", "seed", "water", "shovel"};
@@ -30,16 +33,16 @@ void draw(){
   drawGrass();
   drawGrid();
   drawPlayer();
-  drawEquipped();
+  drawItems();
   frameRate(10);
 }
 
-void drawEquipped(){
+void drawItems(){
   //fill(255);
   //rect(0, 576 , 192 , 64);
-  image(itemPics[0], 0, 576, 64, 64);
-  image(itemPics[1], 64, 576, 64, 64);
-  image(itemPics[2], 134, 582, 52, 52);
+  image(itemPics[0], 0, 608, 32, 32);
+  image(itemPics[1], 64, 608, 32, 32);
+  image(itemPics[2], 129, 610, 30, 30);
 }
 
 void drawPlayer(){
@@ -80,6 +83,7 @@ void drawGrid(){
 void mouseClicked(){
     //*MAKE THE GRASS INTO DIRT
     //if (grass[mouse.x, mouse.y] == still grass)
+    
 }
 
 void keyPressed (){
@@ -91,6 +95,17 @@ void keyPressed (){
     me.direction(2); //left
   if((key == 'D' || key == 'd') && me.getPos().x < width - size)
     me.direction(3); //right
-  //if(key == '1')
-    
+  if(key == '1'){
+    me.equip(1);
+  } 
+  if(key == '2'){
+    me.equip(2);
+  }
+  if(key == '3'){
+    me.equip(3);
+  }
+  if(key == 'e' || key == 'E'){
+    if(me.getCan())
+      me.fillWater();
+  }
 }
