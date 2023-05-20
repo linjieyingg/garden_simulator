@@ -5,13 +5,10 @@ public class Player{
   PVector pos; //position of character
   PVector dir = new PVector(0,0);
   int size = 32;
-  int h,w;
   int water; // # of plants player can water
   boolean hoe, can, seed; //equipped status
   
   public Player(){
-    w = width/size;
-    h = height/size;
     curImg = 1;
     pos = new PVector(size * 10, 10 * size);
     hoe = can = seed = false; 
