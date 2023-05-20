@@ -15,12 +15,15 @@ public class Player{
   }
   
   void equip( int hcs){
-    if (hcs == 1)
+    if (hcs == 1 && hoe == false)
       hoe = true;
-    if (hcs == 2)
+    else hoe = false;
+    if (hcs == 2 && can == false)
       can = true;
-    if (hcs ==3)
+    else can = false;
+    if (hcs == 3 && seed == false)
       seed = true;
+    else seed = false;
   }
   
   boolean getHoe(){
@@ -34,7 +37,8 @@ public class Player{
   }
   
   void fillWater(){
-    water++;
+    if ( water < 5)
+      water++;
   }
   
   void drawPlayer(){
@@ -46,7 +50,7 @@ public class Player{
     return pos;
   }
   
-  void update(){
+  void updatePos(){
     // calculate new pos of player 
     pos = new PVector(pos.x + (dir.x * size), pos.y + (dir.y * size));
   }
@@ -62,22 +66,22 @@ public class Player{
     if( d == 0 ) { 
       dir = new PVector(0,-1); //up
       curImg = 0; 
-      update();
+      updatePos();
     }
     if( d == 1) {
       dir = new PVector(0,1); //down
       curImg = 1;
-      update();
+      updatePos();
     }
     if( d == 2){
       dir = new PVector(-1,0); //left
       curImg = 2;
-      update();
+      updatePos();
     }
     if( d == 3){
       dir = new PVector(1,0); //right
       curImg = 3;
-      update();
+      updatePos();
     }
   }
 
