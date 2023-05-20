@@ -1,14 +1,19 @@
+//WASD to move 
+//1 to equip hoe, 2 to equip watering can, 3 to equip seed
+//E to fill watering can -- MUST BE NEAR WATER
 int water;
 int seeds;
 String[] items = new String[]{"nothing", "seed", "water", "shovel"};
 int curItem;
 int size = 32;
 int w, h;
-// inRange variable and click to change
 
 PImage river;
 PImage grass;
 PImage border;
+Player me;
+
+PImage[] itemPics ; 
 
 void setup(){
   background(169,206,150);
@@ -18,12 +23,30 @@ void setup(){
   river = loadImage("Water.png");
   grass = loadImage("Grass.png");
   border = loadImage("grassborder.png");
+  me = new Player();
+  itemPics = new PImage[]{loadImage("hoe.png"),loadImage("water bucket.png"),
+                              loadImage("fruit seeds.png")};
 }
 
 void draw(){
   drawRiver();
   drawGrass();
-  //drawGrid();
+  drawGrid();
+  drawPlayer();
+  drawItems();
+  frameRate(10);
+}
+
+void drawItems(){
+  //fill(255);
+  //rect(0, 576 , 192 , 64);
+  image(itemPics[0], 0, 608, 32, 32);
+  image(itemPics[1], 64, 608, 32, 32);
+  image(itemPics[2], 129, 610, 30, 30);
+}
+
+void drawPlayer(){
+  me.drawPlayer();
 }
 
 void drawRiver(){
@@ -41,7 +64,7 @@ void drawGrass(){
     }
   }
   for(int x = 0; x < width; x += 2080){
-    image(border, x, 575, 3000, 11);
+    image(border, x, 576, 3000, 15);
   }
 }
 
@@ -51,21 +74,38 @@ void drawGrid(){
       stroke(255);
       line(x, 0, x, height);
   }
-  for(int y = 0; y < height; y+= size){
+  for(int y = 0; y < height; y += size){
     stroke(255);
     line(0,y,width, y);
   }
 }
 
+void mouseClicked(){
+    //*MAKE THE GRASS INTO DIRT
+    //if (grass[mouse.x, mouse.y] == still grass)
+    
+}
+
 void keyPressed (){
-  /*
-  if(key == 'W' || key == 'w' )
-    //dir = new PVector(0, -1);
-  if(key == 'S' || key == 's')
-    //dir = new PVector(0,1);
-  if(key == 'A' || key == 'a')
-    //dir = new PVector(-1, 0);
-  if(key == 'D' || key == 'd')
-    //dir = new PVector(1,0);
-   */
+  if((key == 'W' || key == 'w') && me.getPos().y > 0)
+    me.direction(0); // up
+  if((key == 'S' || key == 's') && me.getPos().y < 514)
+    me.direction(1); // down
+  if((key == 'A' || key == 'a') && me.getPos().x > 0)
+    me.direction(2); //left
+  if((key == 'D' || key == 'd') && me.getPos().x < width - size)
+    me.direction(3); //right
+  if(key == '1'){
+    me.equip(1);
+  } 
+  if(key == '2'){
+    me.equip(2);
+  }
+  if(key == '3'){
+    me.equip(3);
+  }
+  if(key == 'e' || key == 'E'){
+    if(me.getCan())
+      me.fillWater();
+  }
 }
