@@ -1,6 +1,10 @@
-//WASD to move 
-//1 to equip hoe, 2 to equip watering can, 3 to equip seed
-//E to fill watering can -- MUST BE NEAR WATER
+/*         
+GARDEN SIMULATOR
+WASD to move 
+1 to equip hoe, 2 to equip watering can, 3 to equip seed
+E to fill watering can ( MUST BE NEAR WATER )
+Click area next to player to use hoe/water 
+*/
 int water;
 int seeds;
 String[] items = new String[]{"nothing", "seed", "water", "shovel"};
