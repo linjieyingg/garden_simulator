@@ -14,6 +14,7 @@ PImage border;
 Player me;
 
 PImage[] itemPics ; 
+Land area;
 
 void setup(){
   background(169,206,150);
@@ -26,22 +27,24 @@ void setup(){
   me = new Player();
   itemPics = new PImage[]{loadImage("hoe.png"),loadImage("water bucket.png"),
                               loadImage("fruit seeds.png")};
+  area = new Land();
 }
 
 void draw(){
   drawRiver();
-  drawGrass();
+  area.plot();
+  drawBorder();
   drawGrid();
   drawPlayer();
   drawItems();
-  frameRate(10);
+  frameRate(20);
 }
 
 void drawItems(){
   //fill(255);
   //rect(0, 576 , 192 , 64);
   image(itemPics[0], 0, 608, 32, 32);
-  image(itemPics[1], 64, 608, 32, 32);
+  image(itemPics[1], 65, 610, 30, 30);
   image(itemPics[2], 129, 610, 30, 30);
 }
 
@@ -57,12 +60,12 @@ void drawRiver(){
   }
 }
 
-void drawGrass(){
-  for(int x = 0 ; x < width; x+= 32){
-    for(int y = 0; y < 546; y += 32){
+void drawBorder(){
+  /*for(int x = 0 ; x < width; x+= 32){
+    for(int y = 0; y < 576; y += 32){
       image(grass, x, y, 96, 32);
     }
-  }
+  }*/
   for(int x = 0; x < width; x += 2080){
     image(border, x, 576, 3000, 15);
   }
@@ -89,7 +92,7 @@ void mouseClicked(){
 void keyPressed (){
   if((key == 'W' || key == 'w') && me.getPos().y > 0)
     me.direction(0); // up
-  if((key == 'S' || key == 's') && me.getPos().y < 514)
+  if((key == 'S' || key == 's') && me.getPos().y <= 512)
     me.direction(1); // down
   if((key == 'A' || key == 'a') && me.getPos().x > 0)
     me.direction(2); //left

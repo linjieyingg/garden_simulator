@@ -4,14 +4,50 @@ public class Land {
     loadImage("fruit bud.png"), loadImage("fruit sprout.png"),
     loadImage("fruit young.png"),loadImage("fruit adult.png")};
   
+  int[][] plot = new int[18][35];
+  
   int curStage;
   int size = 32;
 
-  public Land(PVector pos){
-     w = width/size; 
-     h = height/size;
+  public Land(){
      curStage = 0;
-     image(stage[curStage], pos.x, pos.y, size, size);
+     for (int[] a : plot){
+       for(int b : a){
+         b = 0;
+       }
+     }
+  }
+  
+  void changeStage(int n){
+    curStage = n;
+  }
+  
+  void plot(){
+    for(int h = 0; h < plot.length; h++){
+      for(int w = 0; w < plot[h].length ; w++){
+        if(plot[h][w] == 0)
+          image(stage[0], w * size , h * size, size, size);
+        else if (plot[h][w] == 1)
+          image(stage[1], h * size, w * size, size, size);
+        else if (plot[h][w] == 2)
+          image(stage[2], h * size, w * size, size, size);
+        else if (plot[h][w] == 3)
+          image(stage[3], h * size, w * size, size, size);
+        else if (plot[h][w] == 4)
+          image(stage[4], h * size, w * size, size, size);
+        else if (plot[h][w] == 5)
+          image(stage[5], h * size, w * size, size, size);
+      }
+    }
+  }
+  void changePlot(int x, int y ){
+    if(plot[x][y] == 5)
+      plot[x][y] = 1;
+    plot[x][y]++;
+  }
+  
+  int returnPlot(int x, int y){
+    return plot[x][y];
   }
   
 }
