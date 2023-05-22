@@ -96,11 +96,14 @@ void mouseClicked(){
     println(row - me.getGridPos().y);
     println(area.returnPlot(row,col));
     println(me.getHoe());
-    if( abs(col - me.getGridPos().x) <= 1 &&
-        abs(row - me.getGridPos().y) <= 1 && 
+    if( ((abs(col - me.getGridPos().x) == 1 &&
+        abs(row - me.getGridPos().y) == 0) || 
+        (abs(col - me.getGridPos().x) == 0 &&
+        abs(row - me.getGridPos().y) == 1)) && 
         me.getHoe() && area.returnPlot(row,col) == 0){
-        area.changePlot(row,col);
         
+          area.changePlot(row,col);
+          area.plot();
     }
 
 }
