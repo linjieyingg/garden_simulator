@@ -58,14 +58,14 @@ public class Land {
       }
     }
   }
-  void changePlot(int x, int y ){
-    if(plot[x][y] == 5)
-      plot[x][y] = 1;
-    plot[x][y]++;
+  void changePlot(int row, int col ){
+    if(plot[row][col] == 5)
+      plot[row][col] = 1;
+    plot[row][col]++;
   }
   
-  int returnPlot(int x, int y){
-    return plot[x][y];
+  int returnPlot(int row, int col){
+    return plot[row][col];
   }
   
 >>>>>>> 7ae13c2b0969612c693c52da73f3e669e8523c52
