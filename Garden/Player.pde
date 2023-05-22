@@ -4,13 +4,15 @@ public class Player{
   int curImg; // to access PImage in the array
   PVector pos; //position of character
   PVector dir = new PVector(0,0);
+  PVector gridPos; // grid position of character
   int size = 32;
   int water; // # of plants player can water
   boolean hoe, can, seed; //equipped status
   
   public Player(){
     curImg = 1;
-    pos = new PVector(size * 10, 10 * size);
+    pos = new PVector(5 * size, 5 * size);
+    gridPos = new PVector(pos.x / size, pos.y / size);
     hoe = can = seed = false; 
   }
   
@@ -53,7 +55,11 @@ public class Player{
 
   void updatePos(){
     // calculate new pos of player 
-    pos = new PVector(pos.x + (dir.x * size), pos.y + (dir.y * size));
+    pos = new PVector( pos.x + (dir.x * size), pos.y + (dir.y * size));
+  }
+  
+  PVector getGridPos(){
+     return gridPos;
   }
   
   boolean inRange(){
