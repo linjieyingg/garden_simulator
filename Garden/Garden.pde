@@ -46,8 +46,8 @@ void draw(){
 }
 
 void drawItems(){
-  //fill(255);
-  //rect(0, 576 , 192 , 64);
+  fill(255);
+  rect(0, 576 , 192 , 64);
   image(itemPics[0], 0, 608, 32, 32);
   image(itemPics[1], 65, 610, 30, 30);
   image(itemPics[2], 129, 610, 30, 30);
