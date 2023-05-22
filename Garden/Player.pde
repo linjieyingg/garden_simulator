@@ -5,14 +5,40 @@ public class Player{
   PVector pos; //position of character
   PVector dir = new PVector(0,0);
   int size = 32;
-  int h,w;
+  int water; // # of plants player can water
+  boolean hoe, can, seed; //equipped status
   
   public Player(){
-    w = width/size;
-    h = height/size;
     curImg = 1;
     pos = new PVector(size * 10, 10 * size);
-    
+    hoe = can = seed = false; 
+  }
+  
+  void equip( int hcs){
+    if (hcs == 1 && hoe == false)
+      hoe = true;
+    else hoe = false;
+    if (hcs == 2 && can == false)
+      can = true;
+    else can = false;
+    if (hcs == 3 && seed == false)
+      seed = true;
+    else seed = false;
+  }
+  
+  boolean getHoe(){
+    return hoe;
+  }
+  boolean getCan(){
+   return can; 
+  }
+  boolean getSeed(){
+   return seed; 
+  }
+  
+  void fillWater(){
+    if ( water < 5)
+      water++;
   }
   
   void drawPlayer(){
@@ -24,7 +50,11 @@ public class Player{
     return pos;
   }
   
+<<<<<<< HEAD
   void update(){
+=======
+  void updatePos(){
+>>>>>>> 7ae13c2b0969612c693c52da73f3e669e8523c52
     // calculate new pos of player 
     pos = new PVector(pos.x + (dir.x * size), pos.y + (dir.y * size));
   }
@@ -40,22 +70,22 @@ public class Player{
     if( d == 0 ) { 
       dir = new PVector(0,-1); //up
       curImg = 0; 
-      update();
+      updatePos();
     }
     if( d == 1) {
       dir = new PVector(0,1); //down
       curImg = 1;
-      update();
+      updatePos();
     }
     if( d == 2){
       dir = new PVector(-1,0); //left
       curImg = 2;
-      update();
+      updatePos();
     }
     if( d == 3){
       dir = new PVector(1,0); //right
       curImg = 3;
-      update();
+      updatePos();
     }
   }
 
