@@ -90,7 +90,11 @@ void drawGrid(){
 
 void mouseClicked(){
     //*MAKE THE GRASS INTO DIRT
-    //if (grass[mouse.x, mouse.y] == still grass)
+    int col = mouseX / size;
+    int row = mouseY / size;
+    if (me.getHoe() && area.returnPlot(row,col) == 0){
+      area.changePlot(row,col);
+    }
     
 }
 
