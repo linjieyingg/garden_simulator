@@ -72,12 +72,12 @@ void mouseClicked(){
 }
 
 void keyPressed (){
-  if(key == 'W' || key == 'w' )
+  if((key == 'W' || key == 'w') && me.getPos().y > 0)
     me.direction(0); // up
-  if(key == 'S' || key == 's')
+  if((key == 'S' || key == 's') && me.getPos().y < 514)
     me.direction(1); // down
-  if(key == 'A' || key == 'a')
+  if((key == 'A' || key == 'a') && me.getPos().x > 0)
     me.direction(2); //left
-  if(key == 'D' || key == 'd')
+  if((key == 'D' || key == 'd') && me.getPos().x < width - size)
     me.direction(3); //right
 }

@@ -20,8 +20,12 @@ public class Player{
     image(charImg[curImg], pos.x, pos.y, 32, 32); 
   }
   
+  PVector getPos(){
+    return pos;
+  }
+  
   void update(){
-    // calculate new pos of player
+    // calculate new pos of player 
     pos = new PVector(pos.x + (dir.x * size), pos.y + (dir.y * size));
   }
   
