@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-
-//THINGS TO NOTE
-//IF LAND TYPE IS WATER YOU CANNOT CHANGE IT
-//THE IMAGE PLACED ON THE SQUARE WHEN TYPE IS PLANT IS STILL JUST DIRT
-
-public class Land{
-  String[] type = new String[]{"water", "grass", "dirt", "plant"};
-  int curType;
-  public Land(int type){
-    curType = type;
-  }
-  public void changeLand(){
-    if (curType == 0) break;
-    if(curType 
-     
-  }
-=======
 public class Land {
   PImage[] stage = new PImage[]{ loadImage("Grass.png"), 
     loadImage("dirt square.png"),
@@ -68,5 +50,4 @@ public class Land {
     return plot[row][col];
   }
   
->>>>>>> 7ae13c2b0969612c693c52da73f3e669e8523c52
 }

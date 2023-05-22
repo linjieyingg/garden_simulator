@@ -50,11 +50,8 @@ public class Player{
     return pos;
   }
   
-<<<<<<< HEAD
-  void update(){
-=======
+
   void updatePos(){
->>>>>>> 7ae13c2b0969612c693c52da73f3e669e8523c52
     // calculate new pos of player 
     pos = new PVector(pos.x + (dir.x * size), pos.y + (dir.y * size));
   }

@@ -97,11 +97,7 @@ void mouseClicked(){
 void keyPressed (){
   if((key == 'W' || key == 'w') && me.getPos().y > 0)
     me.direction(0); // up
-<<<<<<< HEAD
-  if((key == 'S' || key == 's') && me.getPos().y < 514)
-=======
   if((key == 'S' || key == 's') && me.getPos().y <= 512)
->>>>>>> 7ae13c2b0969612c693c52da73f3e669e8523c52
     me.direction(1); // down
   if((key == 'A' || key == 'a') && me.getPos().x > 0)
     me.direction(2); //left
