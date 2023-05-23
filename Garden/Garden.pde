@@ -85,6 +85,7 @@ void drawBorder(){
 void drawGrid(){
   for(int x = 0; x < width; x += size){ 
       stroke(255);
+      strokeWeight(1);
       line(x, 0, x, height);
   }
   for(int y = 0; y < height; y += size){
