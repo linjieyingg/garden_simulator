@@ -52,6 +52,9 @@ public class Player{
     return pos;
   }
   
+  PVector getDir(){
+    return dir; 
+  }
 
   void updatePos(){
     // calculate new pos of player 
