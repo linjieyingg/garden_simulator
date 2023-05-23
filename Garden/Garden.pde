@@ -101,6 +101,12 @@ void mouseClicked(){
     if (me.getHoe() && area.returnPlot(row,col) == 0){
       area.changePlot(row,col);
     }
+    if (me.getSeed() && area.returnPlot(row,col) == 1){
+      area.changePlot(row,col);
+    }
+    if(me.getCan() && (area.returnPlot(row,col) > 1 && area.returnPlot(row,col) < 5)){
+      area.changePlot(row,col);
+    }
     
 }
 
