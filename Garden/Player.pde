@@ -3,6 +3,7 @@ public class Player{
                                   loadImage("left.png"), loadImage("right.png")};  
   int curImg; // to access PImage in the array
   PVector pos; //position of character
+  PVector gridPos;
   PVector dir = new PVector(0,0);
   int size = 32;
   int water; // # of plants player can water
@@ -11,6 +12,7 @@ public class Player{
   public Player(){
     curImg = 1;
     pos = new PVector(size * 10, 10 * size);
+    gridPos = new PVector(pos.x / size, pos.y / size);
     hoe = can = seed = false; 
   }
   
@@ -56,10 +58,17 @@ public class Player{
     pos = new PVector(pos.x + (dir.x * size), pos.y + (dir.y * size));
   }
   
+  PVector getGridPos(){
+     return gridPos;
+  }
+  
   boolean inRange(){
-  if( abs(mouseX - pos.x) <= size && abs(mouseY - pos.y) <= size)
-    return true;
-  else return false;
+    int row = mouseY / size;
+    int col = mouseX /size;
+    if (abs(col - gridPos.x) <= size && abs(row - gridPos.y) <= size 
+    && (row != gridPos.y || col != gridPos.x))
+      return true;
+    else return false;
   }
   
 
