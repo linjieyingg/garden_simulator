@@ -98,10 +98,11 @@ void mouseClicked(){
     //*MAKE THE GRASS INTO DIRT
     int col = mouseX / size;
     int row = mouseY / size;
-    if (me.getHoe() && area.returnPlot(row,col) == 0){
-      area.changePlot(row,col);
+    if( me.inRange() &&
+        me.getHoe() && area.returnPlot(row,col) == 0){
+          area.changePlot(row,col);
+          area.plot();
     }
-    
 }
 
 void keyPressed (){
