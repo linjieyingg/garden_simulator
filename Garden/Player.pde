@@ -3,6 +3,7 @@ public class Player{
                                   loadImage("left.png"), loadImage("right.png")};  
   int curImg; // to access PImage in the array
   PVector pos; //position of character
+  PVector gridPos;
   PVector dir = new PVector(0,0);
   PVector gridPos; // grid position of character
   int size = 32;
@@ -11,7 +12,11 @@ public class Player{
   
   public Player(){
     curImg = 1;
+<<<<<<< HEAD
     pos = new PVector(5 * size, 5 * size);
+=======
+    pos = new PVector(size * 10, 10 * size);
+>>>>>>> master
     gridPos = new PVector(pos.x / size, pos.y / size);
     hoe = can = seed = false; 
   }
@@ -65,10 +70,17 @@ public class Player{
      return gridPos;
   }
   
+  PVector getGridPos(){
+     return gridPos;
+  }
+  
   boolean inRange(){
-  if( abs(mouseX - pos.x) <= size && abs(mouseY - pos.y) <= size)
-    return true;
-  else return false;
+    int row = mouseY / size;
+    int col = mouseX /size;
+    if (abs(col - gridPos.x) <= size && abs(row - gridPos.y) <= size 
+    && (row != gridPos.y || col != gridPos.x))
+      return true;
+    else return false;
   }
   
 

@@ -47,10 +47,15 @@ void draw(){
 
 void drawItems(){
   fill(255);
-  rect(0, 576 , 192 , 64);
-  image(itemPics[0], 0, 608, 32, 32);
-  image(itemPics[1], 65, 610, 30, 30);
-  image(itemPics[2], 129, 610, 30, 30);
+  strokeWeight(3);
+  stroke(149,104,47);
+  rect(size * 27.8, 700 , 194, 62);
+  image(itemPics[0], size * 28, 708, size * 1.5, size * 1.5); //hoe
+  textSize(16);
+  fill(0,0,0);
+  text("1              2                3", size * 28.2, 715);
+  image(itemPics[1], size * 30, 714, size * 1.5 , size * 1.25); // water
+  image(itemPics[2], size * 32, 710, size * 1.5, size * 1.5); //seeds
 }
 
 void drawPlayer(){
@@ -80,6 +85,7 @@ void drawBorder(){
 void drawGrid(){
   for(int x = 0; x < width; x += size){ 
       stroke(255);
+      strokeWeight(1);
       line(x, 0, x, height);
   }
   for(int y = 0; y < height; y += size){
@@ -92,6 +98,7 @@ void mouseClicked(){
     //*MAKE THE GRASS INTO DIRT
     int col = mouseX / size;
     int row = mouseY / size;
+<<<<<<< HEAD
     println(col - me.getGridPos().x);
     println(row - me.getGridPos().y);
     println(area.returnPlot(row,col));
@@ -106,6 +113,13 @@ void mouseClicked(){
           area.plot();
     }
 
+=======
+    if( me.inRange() &&
+        me.getHoe() && area.returnPlot(row,col) == 0){
+          area.changePlot(row,col);
+          area.plot();
+    }
+>>>>>>> master
 }
 
 void keyPressed (){
@@ -129,5 +143,6 @@ void keyPressed (){
   if(key == 'e' || key == 'E'){
     if(me.getCan())
       me.fillWater();
+      
   }
 }

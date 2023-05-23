@@ -28,15 +28,15 @@ public class Land {
         if(plot[h][w] == 0)
           image(stage[0], w * size , h * size, size, size);
         else if (plot[h][w] == 1)
-          image(stage[1], h * size, w * size, size, size);
+          image(stage[1], w * size, h * size, size, size);
         else if (plot[h][w] == 2)
-          image(stage[2], h * size, w * size, size, size);
+          image(stage[2], w * size, h * size, size, size);
         else if (plot[h][w] == 3)
-          image(stage[3], h * size, w * size, size, size);
+          image(stage[3], w * size, h * size, size, size);
         else if (plot[h][w] == 4)
-          image(stage[4], h * size, w * size, size, size);
+          image(stage[4], w * size, h * size, size, size);
         else if (plot[h][w] == 5)
-          image(stage[5], h * size, w * size, size, size);
+          image(stage[5], w * size, h * size, size, size);
       }
     }
   }
