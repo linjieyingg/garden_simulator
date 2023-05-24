@@ -7,7 +7,8 @@ Click area next to player to use hoe/water
 */
 int water;
 int seeds;
-String[] items = new String[]{"nothing", "seed", "water", "shovel"};
+//int fruits;
+//int coins;
 Land[][] map = new Land[35][25];
 int curItem;
 int size = 32;
@@ -31,7 +32,7 @@ void setup(){
   border = loadImage("grassborder.png");
   me = new Player();
   itemPics = new PImage[]{loadImage("hoe.png"),loadImage("water bucket.png"),
-                              loadImage("fruit seeds.png")};
+                              loadImage("fruit seeds.png")/*, fruit icon, money*/};
   area = new Land();
 }
 
@@ -108,6 +109,11 @@ void mouseClicked(){
     }
     if(me.getCan() && (area.returnPlot(row,col) > 1 && area.returnPlot(row,col) < 5)){
       area.changePlot(row,col);
+    }
+    
+    if(me.getN() && area.returnPlot(row,col) == 5){
+       area.changePlot(row,col);
+       //fruit++;
     }
 }
 
