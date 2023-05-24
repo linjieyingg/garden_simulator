@@ -1,6 +1,10 @@
 public class Player{
   PImage[] charImg = new PImage[]{ loadImage("up.png"), loadImage("down.png"),
-                                  loadImage("left.png"), loadImage("right.png")};  
+                                  loadImage("left.png"), loadImage("right.png"),
+                                  loadImage("hoeB.png"), loadImage("hoeF.png"),
+                                  loadImage("hoeL.png"), loadImage("hoeR.png"),
+                                  loadImage("canB.png"), loadImage("canF.png"),
+                                  loadImage("canL.png"), loadImage("canR.png")};  
   int curImg; // to access PImage in the array
   PVector pos; //position of character
   PVector gridPos;
@@ -45,7 +49,12 @@ public class Player{
   
   void drawPlayer(){
     // change image based on direction
-    image(charImg[curImg], pos.x, pos.y, 32, 32); 
+    //canL
+    if(curImg == 10)
+      image(charImg[curImg], pos.x - size, pos.y, 64, 32); 
+    else if (curImg == 11 )
+      image(charImg[curImg], pos.x , pos.y, 64, 32);
+    else image(charImg[curImg], pos.x, pos.y, 32, 32); 
   }
   
   PVector getPos(){
@@ -75,24 +84,39 @@ public class Player{
   void direction(int d){
     if( d == 0 ) { 
       dir = new PVector(0,-1); //up
-      curImg = 0; 
+      if( hoe == true)
+        curImg = 4;
+      else if ( can == true)
+        curImg = 8;
+      else curImg = 0; 
       updatePos();
     }
     if( d == 1) {
       dir = new PVector(0,1); //down
-      curImg = 1;
+      if( hoe == true)
+        curImg = 5;
+      else if ( can == true)
+        curImg = 9;
+      else curImg = 1;
       updatePos();
     }
     if( d == 2){
       dir = new PVector(-1,0); //left
-      curImg = 2;
+      if( hoe == true)
+        curImg = 6;
+      else if ( can == true)
+        curImg = 10;
+      else curImg = 2;
       updatePos();
     }
     if( d == 3){
       dir = new PVector(1,0); //right
-      curImg = 3;
+      if( hoe == true)
+        curImg = 7;
+      else if ( can == true)
+        curImg = 11;
+      else curImg = 3;
       updatePos();
     }
   }
-
 }
