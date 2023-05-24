@@ -39,7 +39,7 @@ void draw(){
   drawRiver();
   area.plot();
   drawBorder();
-  drawGrid();
+  //drawGrid();
   drawPlayer();
   drawItems();
   frameRate(20);

@@ -47,6 +47,10 @@ public class Player{
       water++;
   }
   
+  int getWater(){
+    return water;
+  }
+  
   void drawPlayer(){
     // change image based on direction
     //canL
@@ -54,6 +58,14 @@ public class Player{
       image(charImg[curImg], pos.x - size, pos.y, 64, 32); 
     else if (curImg == 11 )
       image(charImg[curImg], pos.x , pos.y, 64, 32);
+    else if (curImg == 4)
+      image(charImg[curImg], pos.x, pos.y - 16, 32, 48);
+    else if (curImg == 5)
+      image(charImg[curImg], pos.x - 16, pos.y , 48, 32);
+    else if (curImg == 6)
+      image(charImg[curImg], pos.x, pos.y - 10, 40, 42);
+    else if (curImg == 7)
+      image(charImg[curImg], pos.x - 8, pos.y - 10, 40, 42);
     else image(charImg[curImg], pos.x, pos.y, 32, 32); 
   }
   
