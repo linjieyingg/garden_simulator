@@ -1,6 +1,6 @@
 public class Land {
   PImage[] stage = new PImage[]{ loadImage("Grass.png"), 
-    loadImage("dirt square.png"),
+    loadImage("dirt pattern.png"),
     loadImage("fruit bud.png"), loadImage("fruit sprout.png"),
     loadImage("fruit young.png"),loadImage("fruit adult.png")};
   
@@ -27,16 +27,16 @@ public class Land {
       for(int w = 0; w < plot[h].length ; w++){
         if(plot[h][w] == 0)
           image(stage[0], w * size , h * size, size, size);
-        else if (plot[h][w] == 1)
+        if (plot[h][w] >= 1)
           image(stage[1], w * size, h * size, size, size);
-        else if (plot[h][w] == 2)
-          image(stage[2], w * size, h * size, size, size);
-        else if (plot[h][w] == 3)
-          image(stage[3], w * size, h * size, size, size);
-        else if (plot[h][w] == 4)
+        if (plot[h][w] == 2)
+          image(stage[2], w * size + 2, h * size, size-4, size-4);
+        if (plot[h][w] == 3)
+          image(stage[3], w * size, h * size, size-3, size-3);
+        if (plot[h][w] == 4)
           image(stage[4], w * size, h * size, size, size);
-        else if (plot[h][w] == 5)
-          image(stage[5], w * size, h * size, size, size);
+        if (plot[h][w] == 5)
+          image(stage[5], w * size, h * size, size-1, size-1);
       }
     }
   }
