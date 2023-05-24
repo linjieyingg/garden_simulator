@@ -103,16 +103,12 @@ void mouseClicked(){
           area.changePlot(row,col);
           area.plot();
     }
-<<<<<<< HEAD
     if (me.getSeed() && area.returnPlot(row,col) == 1){
       area.changePlot(row,col);
     }
     if(me.getCan() && (area.returnPlot(row,col) > 1 && area.returnPlot(row,col) < 5)){
       area.changePlot(row,col);
     }
-    
-=======
->>>>>>> 519e8f873dbb527b61d86cf25d060306f6dc80f9
 }
 
 void keyPressed (){
