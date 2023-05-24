@@ -130,8 +130,8 @@ void keyPressed (){
     me.equip(3);
   }
   if(key == 'e' || key == 'E'){
-    if(me.getCan())
+    if(me.getCan() && me.getPos().y == 544){
       me.fillWater();
-      
+    }
   }
 }
