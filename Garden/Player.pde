@@ -60,6 +60,14 @@ public class Player{
       image(charImg[curImg], pos.x - size, pos.y, 64, 32); 
     else if (curImg == 11 )
       image(charImg[curImg], pos.x , pos.y, 64, 32);
+    else if (curImg == 4)
+      image(charImg[curImg], pos.x , pos.y - 12, 32, 44);
+    else if (curImg == 5)
+      image(charImg[curImg], pos.x - 12, pos.y, 44, 32);
+    else if (curImg == 6)
+      image(charImg[curImg], pos.x , pos.y - 10, 40, 42);
+    else if (curImg == 7)
+      image(charImg[curImg], pos.x - 8, pos.y - 10, 40, 42);
     else image(charImg[curImg], pos.x, pos.y, 32, 32); 
   }
   
