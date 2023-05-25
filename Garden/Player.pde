@@ -58,6 +58,10 @@ public class Player{
      water--; 
   }
   
+  int getWater(){
+    return water; 
+  }
+  
   void drawPlayer(){
     // change image based on direction
     //canL
