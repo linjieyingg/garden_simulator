@@ -53,6 +53,11 @@ public class Player{
       water++;
   }
   
+  void useWater(){
+   if (water > 0)
+     water--; 
+  }
+  
   void drawPlayer(){
     // change image based on direction
     //canL
