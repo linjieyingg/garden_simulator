@@ -98,10 +98,8 @@ void mouseClicked(){
     //*MAKE THE GRASS INTO DIRT
     int col = mouseX / size;
     int row = mouseY / size;
-    if( me.inRange() &&
-        me.getHoe() && area.returnPlot(row,col) == 0){
-          area.changePlot(row,col);
-          area.plot();
+    if (me.getHoe() && area.returnPlot(row,col) == 0){
+      area.changePlot(row,col);
     }
     if (me.getSeed() && area.returnPlot(row,col) == 1){
       area.changePlot(row,col);
@@ -109,6 +107,7 @@ void mouseClicked(){
     if(me.getCan() && (area.returnPlot(row,col) > 1 && area.returnPlot(row,col) < 5)){
       area.changePlot(row,col);
     }
+    
 }
 
 void keyPressed (){
@@ -130,8 +129,8 @@ void keyPressed (){
     me.equip(3);
   }
   if(key == 'e' || key == 'E'){
-    if(me.getCan() && me.getPos().y == 544){
+    if(me.getCan())
       me.fillWater();
-    }
+      
   }
 }
