@@ -31,8 +31,8 @@ public class Player{
     if (hcs == 3 && seed == false)
       seed = true;
     else seed = false;
-    if(hoe && can && seed == false)
-      nothing = true;
+    if(hoe || can || seed == true)
+      nothing = false;
   }
   boolean getN(){
     return nothing;
@@ -44,13 +44,14 @@ public class Player{
   boolean getCan(){
    return can; 
   }
+  
   boolean getSeed(){
    return seed; 
   }
   
   void fillWater(){
-    if ( water < 5)
-      water++;
+    if ( water < 6)
+      water += 5;
   }
   
   void useWater(){

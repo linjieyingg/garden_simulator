@@ -106,10 +106,12 @@ void mouseClicked(){
     }
     if (me.getSeed() && area.returnPlot(row,col) == 1){
       area.changePlot(row,col);
+      area.plot();
     }
     if(me.getCan() && (area.returnPlot(row,col) > 1 && area.returnPlot(row,col) < 5) 
       && me.getWater() > 0){
       area.changePlot(row,col);
+      //area.plot();
       me.useWater();
     }
     
