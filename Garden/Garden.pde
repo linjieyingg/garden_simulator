@@ -32,7 +32,8 @@ void setup(){
   border = loadImage("grassborder.png");
   me = new Player();
   itemPics = new PImage[]{loadImage("hoe.png"),loadImage("water bucket.png"),
-                              loadImage("fruit seeds.png")/*, fruit icon, money*/};
+                              loadImage("fruit seeds.png"), loadImage("corn seeds.png"),
+                              loadImage("fruit icon.png"), loadImage("corn icon.png")};
   area = new Land();
 }
 
@@ -51,13 +52,16 @@ void drawItems(){
   fill(255);
   strokeWeight(3);
   stroke(149,104,47);
-  rect(size * 27.8, 700 , 194, 62);
-  image(itemPics[0], size * 28, 708, size * 1.5, size * 1.5); //hoe
-  textSize(16);
-  fill(0,0,0);
-  text("1              2                3", size * 28.2, 715);
-  image(itemPics[1], size * 30, 714, size * 1.5 , size * 1.25); // water
-  image(itemPics[2], size * 32, 710, size * 1.5, size * 1.5); //seeds
+  rect(size * 22, 700 , size * 12, size * 2);
+  //image(itemPics[0], size * 24.2, 708, size * 1.5, size * 1.5); //hoe
+  //textSize(16);
+  //fill(0,0,0);
+  //image(itemPics[1], size * 25.8, 714, size * 1.9 , size * 1.3); // water
+  //image(itemPics[2], size * 28, 710, size * 1.5, size * 1.5); //seeds
+   for (int i = 0; i < 6; i++){
+    image(itemPics[i], size * (22.2 + 2* i), 710, size * 1.5, size * 1.5);
+  }
+  
 }
 
 void drawPlayer(){
