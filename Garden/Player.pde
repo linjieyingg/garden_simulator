@@ -78,6 +78,8 @@ public class Player{
       image(charImg[curImg], pos.x , pos.y - 10, 40, 42);
     else if (curImg == 7)
       image(charImg[curImg], pos.x - 8, pos.y - 10, 40, 42);
+    else if (curImg == 9)
+      image(charImg[curImg], pos.x , pos.y , 32, 36);
     else image(charImg[curImg], pos.x, pos.y, 32, 32); 
   }
   

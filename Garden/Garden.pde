@@ -44,6 +44,7 @@ void draw(){
   drawPlayer();
   drawItems();
   frameRate(20);
+  
 }
 
 void drawItems(){
@@ -102,11 +103,11 @@ void mouseClicked(){
     if( me.inRange() &&
         me.getHoe() && area.returnPlot(row,col) == 0){
           area.changePlot(row,col);
-          area.plot();
+          //area.plot();
     }
     if (me.getSeed() && area.returnPlot(row,col) == 1){
       area.changePlot(row,col);
-      area.plot();
+      //area.plot();
     }
     if(me.getCan() && (area.returnPlot(row,col) > 1 && area.returnPlot(row,col) < 5) 
       && me.getWater() > 0){

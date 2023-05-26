@@ -30,13 +30,13 @@ public class Land {
         if (plot[h][w] >= 1)
           image(stage[1], w * size, h * size, size, size);
         if (plot[h][w] == 2)
-          image(stage[2], w * size + 2, h * size, size-4, size-4);
+          image(stage[2], w * size + 8, h * size + 14, size - 16, size-16);
         if (plot[h][w] == 3)
-          image(stage[3], w * size, h * size, size-3, size-3);
+          image(stage[3], w * size + 4, h * size + 7, size- 8, size-8);
         if (plot[h][w] == 4)
-          image(stage[4], w * size, h * size, size, size);
+          image(stage[4], w * size + 2, h * size + 3, size - 4, size - 4);
         if (plot[h][w] == 5)
-          image(stage[5], w * size, h * size, size-1, size-1);
+          image(stage[5], w * size + 3, h * size + 3, size-6, size-4);
       }
     }
   }
