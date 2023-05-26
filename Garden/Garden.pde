@@ -101,17 +101,17 @@ void mouseClicked(){
     int col = mouseX / size;
     int row = mouseY / size;
     if ( row < 18 && col < 35){
-      if( me.inRange() &&
+      if( me.inRange(row, col) &&
           me.getHoe() && area.returnPlot(row,col) == 0){
             area.changePlot(row,col);
             //area.plot();
       }
-      if (me.getSeed() && area.returnPlot(row,col) == 1){
+      if ( me. inRange(row,col) && me.getSeed() && area.returnPlot(row,col) == 1){
         area.changePlot(row,col);
         //area.plot();
       }
       if(me.getCan() && (area.returnPlot(row,col) > 1 && area.returnPlot(row,col) < 5) 
-        && me.getWater() > 0){
+        && me.getWater() > 0 && me. inRange(row,col)){
         area.changePlot(row,col);
         //area.plot();
         me.useWater();

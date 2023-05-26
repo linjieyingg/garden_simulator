@@ -91,17 +91,16 @@ public class Player{
   void updatePos(){
     // calculate new pos of player 
     pos = new PVector(pos.x + (dir.x * size), pos.y + (dir.y * size));
+    gridPos = new PVector(pos.x / size, pos.y / size);
   }
   
   PVector getGridPos(){
      return gridPos;
   }
   
-  boolean inRange(){
-    int row = mouseY / size;
-    int col = mouseX /size;
-    if (abs(col - gridPos.x) <= size && abs(row - gridPos.y) <= size 
-    && (row != gridPos.y || col != gridPos.x))
+  boolean inRange(int row , int col){
+    if (abs(col - gridPos.x) <= 1 && abs(row - gridPos.y) <= 1 &&
+    (col - gridPos.x != 0 || row - gridPos.y != 0 ))
       return true;
     else return false;
   }
