@@ -11,13 +11,13 @@ public class Player{
   PVector dir = new PVector(0,0);
   int size = 32;
   int water; // # of plants player can water
-  boolean nothing, hoe, can, seed; //equipped status
+  boolean nothing, hoe, can, fseed; //equipped status
   
   public Player(){
     curImg = 1;
     pos = new PVector(size * 10, 10 * size);
     gridPos = new PVector(pos.x / size, pos.y / size);
-    hoe = can = seed = false; 
+    hoe = can = fseed = false; 
     nothing = true;
   }
   
@@ -28,10 +28,10 @@ public class Player{
     if (hcs == 2 && can == false)
       can = true;
     else can = false;
-    if (hcs == 3 && seed == false)
-      seed = true;
-    else seed = false;
-    if(hoe || can || seed == true)
+    if (hcs == 3 && fseed == false)
+      fseed = true;
+    else fseed = false;
+    if(hoe || can || fseed == true)
       nothing = false;
   }
   boolean getN(){
@@ -45,8 +45,8 @@ public class Player{
    return can; 
   }
   
-  boolean getSeed(){
-   return seed; 
+  boolean getfSeed(){
+   return fseed; 
   }
   
   void fillWater(){

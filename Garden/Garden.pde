@@ -53,13 +53,20 @@ void drawItems(){
   strokeWeight(3);
   stroke(149,104,47);
   rect(size * 22, 700 , size * 12, size * 2);
-  //image(itemPics[0], size * 24.2, 708, size * 1.5, size * 1.5); //hoe
-  //textSize(16);
-  //fill(0,0,0);
-  //image(itemPics[1], size * 25.8, 714, size * 1.9 , size * 1.3); // water
-  //image(itemPics[2], size * 28, 710, size * 1.5, size * 1.5); //seeds
    for (int i = 0; i < 6; i++){
     image(itemPics[i], size * (22.2 + 2* i), 710, size * 1.5, size * 1.5);
+  }
+  noFill();
+  stroke(255,247,0);
+  if(me.nothing == false){
+    float tempx = 0;
+    if(me.hoe == true)
+      tempx = 22.1;
+    else if(me.can == true)
+      tempx = 24;
+    else if(me.fseed == true)
+      tempx = 26;
+      rect(size * tempx, 703 , size * 1.8, size * 1.8);
   }
   
 }
@@ -110,7 +117,7 @@ void mouseClicked(){
             area.changePlot(row,col);
             //area.plot();
       }
-      if ( me. inRange(row,col) && me.getSeed() && area.returnPlot(row,col) == 1){
+      if ( me.inRange(row,col) && me.getfSeed() && area.returnPlot(row,col) == 1){
         area.changePlot(row,col);
         //area.plot();
       }
