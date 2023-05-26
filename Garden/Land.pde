@@ -36,7 +36,7 @@ public class Land {
         if (plot[h][w] == 4)
           image(stage[4], w * size + 2, h * size + 3, size - 4, size - 4);
         if (plot[h][w] == 5)
-          image(stage[5], w * size + 3, h * size + 3, size-6, size-4);
+          image(stage[5], w * size + 4, h * size + 3, size-6, size-4);
       }
     }
   }

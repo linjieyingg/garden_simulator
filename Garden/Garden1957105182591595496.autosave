@@ -40,11 +40,10 @@ void draw(){
   drawRiver();
   area.plot();
   drawBorder();
-  drawGrid();
+  //drawGrid();
   drawPlayer();
   drawItems();
   frameRate(20);
-  
 }
 
 void drawItems(){
@@ -100,28 +99,45 @@ void mouseClicked(){
     //*MAKE THE GRASS INTO DIRT
     int col = mouseX / size;
     int row = mouseY / size;
-    if ( row < 18 && col < 35){
-      if( me.inRange() &&
-          me.getHoe() && area.returnPlot(row,col) == 0){
-            area.changePlot(row,col);
-            //area.plot();
-      }
-      if (me.getSeed() && area.returnPlot(row,col) == 1){
-        area.changePlot(row,col);
-        //area.plot();
-      }
-      if(me.getCan() && (area.returnPlot(row,col) > 1 && area.returnPlot(row,col) < 5) 
-        && me.getWater() > 0){
-        area.changePlot(row,col);
-        //area.plot();
-        me.useWater();
-      }
-      
-      if(me.getN() && area.returnPlot(row,col) == 5){
-         area.changePlot(row,col);
-         //fruit++;
-      }
+    println(col - me.getGridPos().x);
+    println(row - me.getGridPos().y);
+    println(area.returnPlot(row,col));
+    println(me.getHoe());
+    if( ((abs(col - me.getGridPos().x) == 1 &&
+        abs(row - me.getGridPos().y) == 0) || 
+        (abs(col - me.getGridPos().x) == 0 &&
+        abs(row - me.getGridPos().y) == 1)) && 
+        me.getHoe() && area.returnPlot(row,col) == 0){
+        
+          area.changePlot(row,col);
+          area.plot();
     }
+
+=======
+    if( me.inRange() &&
+        me.getHoe() && area.returnPlot(row,col) == 0){
+          area.changePlot(row,col);
+          area.plot();
+    }
+<<<<<<< HEAD
+>>>>>>> master
+=======
+    if (me.getSeed() && area.returnPlot(row,col) == 1){
+      area.changePlot(row,col);
+      area.plot();
+    }
+    if(me.getCan() && (area.returnPlot(row,col) > 1 && area.returnPlot(row,col) < 5) 
+      && me.getWater() > 0){
+      area.changePlot(row,col);
+      //area.plot();
+      me.useWater();
+    }
+    
+    if(me.getN() && area.returnPlot(row,col) == 5){
+       area.changePlot(row,col);
+       //fruit++;
+    }
+>>>>>>> master
 }
 
 void keyPressed (){
