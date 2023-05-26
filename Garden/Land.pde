@@ -2,7 +2,10 @@ public class Land {
   PImage[] stage = new PImage[]{ loadImage("Grass.png"), 
     loadImage("dirt square.png"),
     loadImage("fruit bud.png"), loadImage("fruit sprout.png"),
-    loadImage("fruit young.png"),loadImage("fruit adult.png")};
+    loadImage("fruit young.png"),loadImage("fruit adult.png"),
+    loadImage("corn bud.png"), loadImage("corn sprout.png"),
+    loadImage("corn young.png"), loadImage("corn adult.png")
+    };
   
   int[][] plot = new int[18][35];
   
@@ -44,6 +47,14 @@ public class Land {
     if(plot[row][col] == 5)
       plot[row][col] = 1;
     plot[row][col]++;
+  }
+
+  void changePlotCorn(int row, int col){
+    if(plot[row][col] == 9)
+      plot[row][col] = 1;
+    if(plot[row][col] == 1)
+      plot[row][col] = 6;
+    else plot[row][col]++;
   }
   
   int returnPlot(int row, int col){
