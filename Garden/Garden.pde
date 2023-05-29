@@ -13,6 +13,7 @@ Land[][] map = new Land[35][25];
 int curItem;
 int size = 32;
 int w, h;
+int money;
 
 PImage river;
 PImage grass;
@@ -60,6 +61,7 @@ void drawItems(){
     image(itemPics[i], size * (22.2 + 2* i), 712, size * 1.5, size * 1.5);
   }
   noFill();
+  strokeWeight(3);
   stroke(255,247,0);
   if(me.nothing != true){
     float tempx = 0;
@@ -73,7 +75,6 @@ void drawItems(){
       tempx = 28;
       rect(size * tempx, 707 , size * 1.8, size * 1.8);
   }
-  
 }
 
 void drawMoney(){
