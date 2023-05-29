@@ -24,15 +24,6 @@ public class Player{
   }
   
   void equip( int hcs){
-    if (hcs == 1 && hoe == false){
-      hoe = true;
-      curImg = nDir + 4;
-    }
-    else { 
-      hoe = false;
-      nothing = true;
-      curImg = nDir;
-    }
     if (hcs == 2 && can == false){
       can = true;
       curImg = nDir + 8;
@@ -40,7 +31,16 @@ public class Player{
     else {
       can = false;
       nothing = true;
-      curImg = nDir;
+      //curImg = nDir;
+    }
+    if (hcs == 1 && hoe == false){
+      hoe = true;
+      curImg = nDir + 4;
+    }
+    else { 
+      hoe = false;
+      nothing = true;
+      //curImg = nDir;
     }
     if (hcs == 3 && fseed == false)
       fseed = true;
@@ -56,6 +56,8 @@ public class Player{
     }
     if(hoe || can || fseed || cseed == true)
       nothing = false;
+    if(nothing == true)
+      curImg = nDir;
   }
   boolean getN(){
     return nothing;
