@@ -31,7 +31,6 @@ public class Player{
     else {
       can = false;
       nothing = true;
-      //curImg = nDir;
     }
     if (hcs == 1 && hoe == false){
       hoe = true;
@@ -40,7 +39,6 @@ public class Player{
     else { 
       hoe = false;
       nothing = true;
-      //curImg = nDir;
     }
     if (hcs == 3 && fseed == false)
       fseed = true;
@@ -98,7 +96,7 @@ public class Player{
     else if (curImg == 4)
       image(charImg[curImg], pos.x , pos.y - 12, 32, 44);
     else if (curImg == 5)
-      image(charImg[curImg], pos.x - 12, pos.y, 44, 32);
+      image(charImg[curImg], pos.x - 14, pos.y, 46, 32);
     else if (curImg == 6)
       image(charImg[curImg], pos.x , pos.y - 10, 40, 42);
     else if (curImg == 7)
