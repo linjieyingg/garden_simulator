@@ -32,7 +32,7 @@ void setup(){
   river = loadImage("Water.png");
   grass = loadImage("Grass.png");
   border = loadImage("grassborder.png");
-  coin = loadImage("coin.gif");
+  coin = loadImage("coin.png");
   me = new Player();
   itemPics = new PImage[]{loadImage("hoe.png"),loadImage("water bucket.png"),
                               loadImage("fruit seeds.png"), loadImage("corn seeds.png"),
