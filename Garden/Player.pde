@@ -9,12 +9,14 @@ public class Player{
   PVector pos; //position of character
   PVector gridPos;
   PVector dir = new PVector(0,0);
+  int nDir;
   int size = 32;
   int water; // # of plants player can water
   boolean nothing, hoe, can, fseed, cseed; //equipped status
   
   public Player(){
     curImg = 1;
+    nDir = 1;
     pos = new PVector(size * 10, 10 * size);
     gridPos = new PVector(pos.x / size, pos.y / size);
     hoe = can = fseed = cseed = false; 
@@ -22,17 +24,23 @@ public class Player{
   }
   
   void equip( int hcs){
-    if (hcs == 1 && hoe == false)
+    if (hcs == 1 && hoe == false){
       hoe = true;
+      curImg = nDir + 4;
+    }
     else { 
       hoe = false;
       nothing = true;
+      curImg = nDir;
     }
-    if (hcs == 2 && can == false)
+    if (hcs == 2 && can == false){
       can = true;
+      curImg = nDir + 8;
+    }
     else {
       can = false;
       nothing = true;
+      curImg = nDir;
     }
     if (hcs == 3 && fseed == false)
       fseed = true;
@@ -122,8 +130,10 @@ public class Player{
   
 
   private void direction(int d){
+    nDir = d;
     if( d == 0 ) { 
       dir = new PVector(0,-1); //up
+      
       if( hoe == true)
         curImg = 4;
       else if ( can == true)
@@ -159,4 +169,5 @@ public class Player{
       updatePos();
     }
   }
+ 
 }
