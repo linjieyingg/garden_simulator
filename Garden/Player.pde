@@ -11,27 +11,42 @@ public class Player{
   PVector dir = new PVector(0,0);
   int size = 32;
   int water; // # of plants player can water
-  boolean nothing, hoe, can, fseed; //equipped status
+  boolean nothing, hoe, can, fseed, cseed; //equipped status
   
   public Player(){
     curImg = 1;
     pos = new PVector(size * 10, 10 * size);
     gridPos = new PVector(pos.x / size, pos.y / size);
-    hoe = can = fseed = false; 
+    hoe = can = fseed = cseed = false; 
     nothing = true;
   }
   
   void equip( int hcs){
     if (hcs == 1 && hoe == false)
       hoe = true;
-    else hoe = false;
+    else { 
+      hoe = false;
+      nothing = true;
+    }
     if (hcs == 2 && can == false)
       can = true;
-    else can = false;
+    else {
+      can = false;
+      nothing = true;
+    }
     if (hcs == 3 && fseed == false)
       fseed = true;
-    else fseed = false;
-    if(hoe || can || fseed == true)
+    else {
+      fseed = false;
+      nothing = true; 
+    }
+    if (hcs == 4 && cseed == false)
+      cseed = true;
+    else {
+      cseed = false; 
+      nothing = true;
+    }
+    if(hoe || can || fseed || cseed == true)
       nothing = false;
   }
   boolean getN(){
@@ -88,7 +103,7 @@ public class Player{
   }
   
 
-  void updatePos(){
+  private void updatePos(){
     // calculate new pos of player 
     pos = new PVector(pos.x + (dir.x * size), pos.y + (dir.y * size));
     gridPos = new PVector(pos.x / size, pos.y / size);
@@ -106,7 +121,7 @@ public class Player{
   }
   
 
-  void direction(int d){
+  private void direction(int d){
     if( d == 0 ) { 
       dir = new PVector(0,-1); //up
       if( hoe == true)
