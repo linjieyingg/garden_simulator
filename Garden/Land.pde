@@ -45,7 +45,7 @@ public class Land {
   void changePlot(int row, int col ){
     if(plot[row][col] == 5)
       plot[row][col] = 1;
-    plot[row][col]++;
+    else plot[row][col]++;
   }
 
   void changePlotCorn(int row, int col){

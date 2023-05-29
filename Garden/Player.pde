@@ -40,14 +40,18 @@ public class Player{
       hoe = false;
       nothing = true;
     }
-    if (hcs == 3 && fseed == false)
+    if (hcs == 3 && fseed == false){
       fseed = true;
+      curImg = nDir;
+    }
     else {
       fseed = false;
       nothing = true; 
     }
-    if (hcs == 4 && cseed == false)
+    if (hcs == 4 && cseed == false){
       cseed = true;
+      curImg = nDir;
+    }
     else {
       cseed = false; 
       nothing = true;
@@ -109,7 +113,6 @@ public class Player{
   PVector getPos(){
     return pos;
   }
-  
 
   private void updatePos(){
     // calculate new pos of player 
