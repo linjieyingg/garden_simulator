@@ -8,7 +8,6 @@ public class Land {
     };
   
   int[][] plot = new int[18][35];
-  
   int curStage;
   int size = 32;
 
