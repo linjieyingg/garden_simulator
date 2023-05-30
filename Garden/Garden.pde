@@ -13,10 +13,12 @@ Land[][] map = new Land[35][25];
 int curItem;
 int size = 32;
 int w, h;
+int money;
 
 PImage river;
 PImage grass;
 PImage border;
+PImage coin;
 Player me;
 
 PImage[] itemPics ; 
@@ -30,6 +32,7 @@ void setup(){
   river = loadImage("Water.png");
   grass = loadImage("Grass.png");
   border = loadImage("grassborder.png");
+  coin = loadImage("coin.png");
   me = new Player();
   itemPics = new PImage[]{loadImage("hoe.png"),loadImage("water bucket.png"),
                               loadImage("fruit seeds.png"), loadImage("corn seeds.png"),
@@ -44,6 +47,7 @@ void draw(){
   drawGrid();
   drawPlayer();
   drawItems();
+  drawMoney();
   frameRate(20);
   
 }
@@ -52,13 +56,14 @@ void drawItems(){
   fill(255);
   strokeWeight(3);
   stroke(149,104,47);
-  rect(size * 22, 700 , size * 12, size * 2);
+  rect(size * 22, 704 , size * 12, size * 2);
    for (int i = 0; i < 6; i++){
-    image(itemPics[i], size * (22.2 + 2* i), 710, size * 1.5, size * 1.5);
+    image(itemPics[i], size * (22.2 + 2* i), 712, size * 1.5, size * 1.5);
   }
   noFill();
+  strokeWeight(3);
   stroke(255,247,0);
-  if(me.nothing == false){
+  if(me.nothing != true){
     float tempx = 0;
     if(me.hoe == true)
       tempx = 22.1;
@@ -66,9 +71,14 @@ void drawItems(){
       tempx = 24;
     else if(me.fseed == true)
       tempx = 26;
-      rect(size * tempx, 703 , size * 1.8, size * 1.8);
+    else if(me.cseed == true)
+      tempx = 28;
+      rect(size * tempx, 707 , size * 1.8, size * 1.8);
   }
-  
+}
+
+void drawMoney(){
+  image(coin, 16, 640, 32,32);
 }
 
 void drawPlayer(){
@@ -152,6 +162,9 @@ void keyPressed (){
   }
   if(key == '3'){
     me.equip(3);
+  }
+  if(key == '4'){
+    me.equip(4); 
   }
   if(key == 'e' || key == 'E'){
     if(me.getCan() && me.getPos().y == 544){

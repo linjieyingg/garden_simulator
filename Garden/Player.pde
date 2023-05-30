@@ -9,30 +9,57 @@ public class Player{
   PVector pos; //position of character
   PVector gridPos;
   PVector dir = new PVector(0,0);
+  int nDir;
   int size = 32;
   int water; // # of plants player can water
-  boolean nothing, hoe, can, fseed; //equipped status
+  boolean nothing, hoe, can, fseed, cseed; //equipped status
   
   public Player(){
     curImg = 1;
+    nDir = 1;
     pos = new PVector(size * 10, 10 * size);
     gridPos = new PVector(pos.x / size, pos.y / size);
-    hoe = can = fseed = false; 
+    hoe = can = fseed = cseed = false; 
     nothing = true;
   }
   
   void equip( int hcs){
-    if (hcs == 1 && hoe == false)
-      hoe = true;
-    else hoe = false;
-    if (hcs == 2 && can == false)
+    if (hcs == 2 && can == false){
       can = true;
-    else can = false;
-    if (hcs == 3 && fseed == false)
+      curImg = nDir + 8;
+    }
+    else {
+      can = false;
+      nothing = true;
+    }
+    if (hcs == 1 && hoe == false){
+      hoe = true;
+      curImg = nDir + 4;
+    }
+    else { 
+      hoe = false;
+      nothing = true;
+    }
+    if (hcs == 3 && fseed == false){
       fseed = true;
-    else fseed = false;
-    if(hoe || can || fseed == true)
+      curImg = nDir;
+    }
+    else {
+      fseed = false;
+      nothing = true; 
+    }
+    if (hcs == 4 && cseed == false){
+      cseed = true;
+      curImg = nDir;
+    }
+    else {
+      cseed = false; 
+      nothing = true;
+    }
+    if(hoe || can || fseed || cseed == true)
       nothing = false;
+    if(nothing == true)
+      curImg = nDir;
   }
   boolean getN(){
     return nothing;
@@ -73,22 +100,21 @@ public class Player{
     else if (curImg == 4)
       image(charImg[curImg], pos.x , pos.y - 12, 32, 44);
     else if (curImg == 5)
-      image(charImg[curImg], pos.x - 12, pos.y, 44, 32);
+      image(charImg[curImg], pos.x - 14, pos.y, 46, 32);
     else if (curImg == 6)
       image(charImg[curImg], pos.x , pos.y - 10, 40, 42);
     else if (curImg == 7)
       image(charImg[curImg], pos.x - 8, pos.y - 10, 40, 42);
     else if (curImg == 9)
-      image(charImg[curImg], pos.x , pos.y , 32, 36);
-    else image(charImg[curImg], pos.x, pos.y, 32, 32); 
+      image(charImg[curImg], pos.x - 4, pos.y , 36, 36);
+    else image(charImg[curImg], pos.x , pos.y, 32, 32); 
   }
   
   PVector getPos(){
     return pos;
   }
-  
 
-  void updatePos(){
+  private void updatePos(){
     // calculate new pos of player 
     pos = new PVector(pos.x + (dir.x * size), pos.y + (dir.y * size));
     gridPos = new PVector(pos.x / size, pos.y / size);
@@ -106,9 +132,11 @@ public class Player{
   }
   
 
-  void direction(int d){
+  private void direction(int d){
+    nDir = d;
     if( d == 0 ) { 
       dir = new PVector(0,-1); //up
+      
       if( hoe == true)
         curImg = 4;
       else if ( can == true)
@@ -144,4 +172,5 @@ public class Player{
       updatePos();
     }
   }
+ 
 }
