@@ -83,12 +83,12 @@ void drawItems(){
     else if(me.fseed == true){
       tempx = 26;
       fill(0);
-      text(seedsF, 880, 762);
+      text(fseeds, 880, 762);
     }
     else if(me.cseed == true){
       tempx = 28;
       fill(0);
-      text(seedsC, 944, 762); 
+      text(cseeds, 944, 762); 
     }
     noFill();
     rect(size * tempx, 707 , size * 1.8, size * 1.8);
