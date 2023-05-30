@@ -23,10 +23,12 @@ Player me;
 
 PImage[] itemPics ; 
 Land area;
+PFont chandas;
 
 void setup(){
   background(169,206,150);
   size(1120,800);
+  chandas = createFont("Bold", 12);
   w = width/size;
   h = height/size;
   river = loadImage("Water.png");
@@ -72,13 +74,18 @@ void drawItems(){
     float tempx = 0;
     if(me.hoe == true)
       tempx = 22.1;
-    else if(me.can == true)
+    else if(me.can == true){
       tempx = 24;
+      fill(0, 0, 0);
+      textFont(chandas);
+      text(me.getWater(), 814, 762);
+    }
     else if(me.fseed == true)
       tempx = 26;
     else if(me.cseed == true)
       tempx = 28;
-      rect(size * tempx, 707 , size * 1.8, size * 1.8);
+    noFill();
+    rect(size * tempx, 707 , size * 1.8, size * 1.8);
   }
 }
 

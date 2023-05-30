@@ -81,8 +81,8 @@ public class Player{
   }
   
   void fillWater(){
-    if ( water < 6)
-      water += 5;
+    while ( water < 5)
+      water ++;
   }
   
   void useWater(){
@@ -111,6 +111,10 @@ public class Player{
       image(charImg[curImg], pos.x - 8, pos.y - 10, 40, 42);
     else if (curImg == 9)
       image(charImg[curImg], pos.x - 4, pos.y , 36, 36);
+    else if (curImg == 2)
+      image(charImg[curImg], pos.x + 4, pos.y, 28, 32);
+    else if (curImg == 3)
+      image(charImg[curImg], pos.x , pos.y, 32, 32);
     else image(charImg[curImg], pos.x , pos.y, 32, 32); 
   }
   
