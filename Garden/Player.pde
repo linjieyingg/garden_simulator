@@ -76,6 +76,10 @@ public class Player{
    return fseed; 
   }
   
+  boolean getcSeed(){
+    return cseed;
+  }
+  
   void fillWater(){
     if ( water < 6)
       water += 5;

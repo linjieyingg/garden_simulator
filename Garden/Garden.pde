@@ -5,15 +5,15 @@ WASD to move
 E to fill watering can ( MUST BE NEAR WATER )
 Click area next to player to use hoe/water 
 */
-int water;
-int seeds;
-//int fruits;
-//int coins;
+int fseeds;
+int cseeds;
+int fruit;
+int corn;
+int money;
 Land[][] map = new Land[35][25];
 int curItem;
 int size = 32;
 int w, h;
-int money;
 
 PImage river;
 PImage grass;
@@ -33,6 +33,11 @@ void setup(){
   grass = loadImage("Grass.png");
   border = loadImage("grassborder.png");
   coin = loadImage("coin.png");
+  fseeds = 3;
+  cseeds = 3;
+  corn = 0;
+  fruit = 0;
+  money = 50;
   me = new Player();
   itemPics = new PImage[]{loadImage("hoe.png"),loadImage("water bucket.png"),
                               loadImage("fruit seeds.png"), loadImage("corn seeds.png"),
@@ -127,9 +132,14 @@ void mouseClicked(){
             area.changePlot(row,col);
             //area.plot();
       }
-      if ( me.inRange(row,col) && me.getfSeed() && area.returnPlot(row,col) == 1){
+      if ( me.inRange(row,col) && me.getfSeed() && fseeds > 0 && area.returnPlot(row,col) == 1){
         area.changePlot(row,col);
+        fseeds--;
         //area.plot();
+      }
+      if ( me.inRange(row,col) && me.getcSeed() && cseeds > 0 && area.returnPlot(row,col) == 1){
+        area.changePlotCorn(row,col);
+        cseeds--;
       }
       if(me.getCan() && (area.returnPlot(row,col) > 1 && area.returnPlot(row,col) < 5) 
         && me.getWater() > 0 && me. inRange(row,col)){
@@ -137,10 +147,20 @@ void mouseClicked(){
         //area.plot();
         me.useWater();
       }
+      if(me.getCan() && (area.returnPlot(row,col) > 5 && area.returnPlot(row,col) < 9) 
+        && me.getWater() > 0 && me.inRange(row,col)){
+        area.changePlotCorn(row,col);
+        me.useWater();
+      }
       
       if(me.getN() && area.returnPlot(row,col) == 5){
          area.changePlot(row,col);
-         //fruit++;
+         fruit++;
+      }
+      
+      if(me.getN() && area.returnPlot(row,col) == 9){
+         area.changePlot(row,col);
+         corn++;
       }
     }
 }
