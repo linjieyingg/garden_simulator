@@ -70,6 +70,7 @@ void drawItems(){
   noFill();
   strokeWeight(3);
   stroke(255,247,0);
+  textFont(chandas);
   if(me.nothing != true){
     float tempx = 0;
     if(me.hoe == true)
@@ -77,13 +78,18 @@ void drawItems(){
     else if(me.can == true){
       tempx = 24;
       fill(0, 0, 0);
-      textFont(chandas);
       text(me.getWater(), 814, 762);
     }
-    else if(me.fseed == true)
+    else if(me.fseed == true){
       tempx = 26;
-    else if(me.cseed == true)
+      fill(0);
+      text(seedsF, 880, 762);
+    }
+    else if(me.cseed == true){
       tempx = 28;
+      fill(0);
+      text(seedsC, 944, 762); 
+    }
     noFill();
     rect(size * tempx, 707 , size * 1.8, size * 1.8);
   }
