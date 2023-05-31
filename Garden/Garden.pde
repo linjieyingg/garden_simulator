@@ -93,10 +93,20 @@ void drawItems(){
     noFill();
     rect(size * tempx, 707 , size * 1.8, size * 1.8);
   }
+  
+  //SELL BUTTON
+  stroke(249,224,85);
+  strokeWeight(5);
+  fill(247,230,134);
+  rect(size * 2, size * 22, size * 4, size * 2);
+  fill(255);
+  textSize(25);
+  text("sell fruit", size * 2.3, size * 23.4);
 }
 
 void drawMoney(){
   image(coin, 16, 640, 32,32);
+  text(money, 18, 638);
 }
 
 void drawPlayer(){
@@ -176,6 +186,16 @@ void mouseClicked(){
          corn++;
       }
     }
+   if(row > 22 && row <=24 && col > 2 && col < 7){
+     if (fruit > 0){
+       fruit--;
+       money += 20;
+     }
+     else if (corn > 0){
+       corn--;
+       money += 45;
+     }
+   }
 }
 
 void keyPressed (){
