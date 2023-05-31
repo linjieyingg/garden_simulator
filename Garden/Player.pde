@@ -19,6 +19,7 @@ public class Player{
     nDir = 1;
     pos = new PVector(size * 10, 10 * size);
     gridPos = new PVector(pos.x / size, pos.y / size);
+    print(gridPos);
     hoe = can = fseed = cseed = false; 
     nothing = true;
   }
@@ -104,7 +105,7 @@ public class Player{
     else if (curImg == 4)
       image(charImg[curImg], pos.x , pos.y - 12, 32, 44);
     else if (curImg == 5)
-      image(charImg[curImg], pos.x - 14, pos.y, 46, 32);
+      image(charImg[curImg], pos.x - 16, pos.y, 48, 32);
     else if (curImg == 6)
       image(charImg[curImg], pos.x , pos.y - 10, 40, 42);
     else if (curImg == 7)
@@ -114,7 +115,7 @@ public class Player{
     else if (curImg == 2)
       image(charImg[curImg], pos.x + 4, pos.y, 28, 32);
     else if (curImg == 3)
-      image(charImg[curImg], pos.x , pos.y, 32, 32);
+      image(charImg[curImg], pos.x , pos.y, 28, 32);
     else image(charImg[curImg], pos.x , pos.y, 32, 32); 
   }
   
@@ -125,11 +126,26 @@ public class Player{
   private void updatePos(){
     // calculate new pos of player 
     pos = new PVector(pos.x + (dir.x * size), pos.y + (dir.y * size));
+   /* 
+    if(curImg == 5)
+      gridPos = new PVector((pos.x + 16)/ size, pos.y / size);
+    else if (curImg == 4)
+      gridPos = new PVector(pos.x / size, (pos.y + 16)/ size);
+    else if (curImg == 6)
+      gridPos = new PVector(pos.x / size, (pos.y + 16)/ size);
+    else if (curImg == 7)
+      gridPos = new PVector(pos.x / size, (pos.y + 16)/ size);
+    else if (curImg == 9)
+      gridPos = new PVector((pos.x + 8)/ size, pos.y / size);
+    else if (curImg == 10)
+      gridPos = new PVector((pos.x + 32)/ size, pos.y / size);
+    else */
     gridPos = new PVector(pos.x / size, pos.y / size);
+    
   }
   
   PVector getGridPos(){
-     return gridPos;
+    return gridPos;
   }
   
   boolean inRange(int row , int col){
