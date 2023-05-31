@@ -179,14 +179,22 @@ void mouseClicked(){
 }
 
 void keyPressed (){
-  if((key == 'W' || key == 'w') && me.getPos().y > 0)
+  if((key == 'W' || key == 'w') && me.getPos().y > 0){
     me.direction(0); // up
-  if((key == 'S' || key == 's') && me.getPos().y <= 512)
+    area.stepOn( me.getGridPos());
+  }
+  if((key == 'S' || key == 's') && me.getPos().y <= 512){
     me.direction(1); // down
-  if((key == 'A' || key == 'a') && me.getPos().x > 0)
+    area.stepOn( me.getGridPos());
+  }
+  if((key == 'A' || key == 'a') && me.getPos().x > 0){
     me.direction(2); //left
-  if((key == 'D' || key == 'd') && me.getPos().x < width - size)
+    area.stepOn( me.getGridPos());
+  }
+  if((key == 'D' || key == 'd') && me.getPos().x < width - size){
     me.direction(3); //right
+    area.stepOn( me.getGridPos());
+  }
   if(key == '1'){
     me.equip(1);
   } 
