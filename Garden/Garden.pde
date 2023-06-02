@@ -9,11 +9,12 @@ int fseeds;
 int cseeds;
 int fruit;
 int corn;
+double priceF, priceC;
 int money;
-Land[][] map = new Land[35][25];
 int curItem;
 int size = 32;
 int w, h;
+Land[][] map = new Land[width/size][height/size];
 
 PImage river;
 PImage grass;
@@ -24,6 +25,7 @@ Player me;
 PImage[] itemPics ; 
 Land area;
 PFont chandas;
+PImage box;
 
 void setup(){
   background(169,206,150);
@@ -45,6 +47,7 @@ void setup(){
                               loadImage("fruit seeds.png"), loadImage("corn seeds.png"),
                               loadImage("fruit icon.png"), loadImage("corn icon.png")};
   area = new Land();
+  box = loadImage("dialog.png");
 }
 
 void draw(){
@@ -95,13 +98,13 @@ void drawItems(){
   }
   
   //SELL BUTTON
-  stroke(249,224,85);
-  strokeWeight(5);
+  stroke(149,104,47);
+  strokeWeight(3);
   fill(247,230,134);
   rect(size * 2, size * 22, size * 4, size * 2);
   fill(255);
   textSize(25);
-  text("sell fruit", size * 2.3, size * 23.4);
+  text("sell fruit", size * 2.4, size * 23.4);
 }
 
 void drawMoney(){
@@ -143,6 +146,15 @@ void drawGrid(){
     stroke(255);
     line(0,y,width, y);
   }
+}
+
+void step(){
+    image(box, me.pos.x + size, me.pos.y, 176, 48);
+}
+
+
+void buy(){
+   
 }
 
 void mouseClicked(){
@@ -201,19 +213,31 @@ void mouseClicked(){
 void keyPressed (){
   if((key == 'W' || key == 'w') && me.getPos().y > 0){
     me.direction(0); // up
-    area.stepOn( me.getGridPos());
+    if (area.canStep(me.getGridPos())){
+      area.stepOn(me.getGridPos());
+      //step();
+    }
   }
   if((key == 'S' || key == 's') && me.getPos().y <= 512){
     me.direction(1); // down
-    area.stepOn( me.getGridPos());
+    if (area.canStep(me.getGridPos())){
+      area.stepOn(me.getGridPos());
+      step();
+    }
   }
   if((key == 'A' || key == 'a') && me.getPos().x > 0){
     me.direction(2); //left
-    area.stepOn( me.getGridPos());
+    if (area.canStep(me.getGridPos())){
+      area.stepOn(me.getGridPos());
+      step();
+    }
   }
   if((key == 'D' || key == 'd') && me.getPos().x < width - size){
     me.direction(3); //right
-    area.stepOn( me.getGridPos());
+    if (area.canStep(me.getGridPos())){
+      area.stepOn(me.getGridPos());
+      step();
+    }
   }
   if(key == '1'){
     me.equip(1);

@@ -122,7 +122,7 @@ public class Player{
   PVector getPos(){
     return pos;
   }
-
+ 
   private void updatePos(){
     // calculate new pos of player 
     pos = new PVector(pos.x + (dir.x * size), pos.y + (dir.y * size));

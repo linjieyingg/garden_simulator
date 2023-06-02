@@ -71,9 +71,13 @@ public class Land {
   void stepOn(PVector gridPos){
     int r = (int) gridPos.y;
     int c = (int) gridPos.x;
-    if (plot[r][c] > 1){
-      plot[r][c] = 1;  
-      println("You stepped on a plant!");
-    }
+    plot[r][c] = 1;  
   }
+  
+  boolean canStep(PVector gridPos){
+    int r = (int) gridPos.y;
+    int c = (int) gridPos.x;
+    return plot[r][c] > 1; 
+  }
+  
 }
