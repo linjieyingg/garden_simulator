@@ -63,35 +63,38 @@ void drawItems(){
   fill(255);
   strokeWeight(3);
   stroke(149,104,47);
-  rect(size * 22, 704 , size * 12, size * 2);
+  image(loadImage("inventory.png"), size * 11.1, 695, size * 14, size * 2.75);
    for (int i = 0; i < 6; i++){
-    image(itemPics[i], size * (22.2 + 2* i), 712, size * 1.5, size * 1.5);
+    image(loadImage("item box.png"), size * (11.95 + 2 * i) , 705, size * 2, size * 2);
+    image(itemPics[i], size * (12.2 + 2* i), 712, size * 1.5, size * 1.5);    //putting all the item icons
   }
   noFill();
   strokeWeight(3);
   stroke(255,247,0);
   textFont(chandas);
+  fill(0);
+  text(fruit, 690, 762);
+  text(corn, 750, 762);
   if(me.nothing != true){
     float tempx = 0;
     if(me.hoe == true)
-      tempx = 22.1;
+      tempx = 12.1;
     else if(me.can == true){
-      tempx = 24;
+      tempx = 14;
       fill(0, 0, 0);
-      text(me.getWater(), 814, 762);
+      text(me.getWater(), 495, 762);
     }
     else if(me.fseed == true){
-      tempx = 26;
+      tempx = 16;
       fill(0);
-      text(fseeds, 880, 762);
+      text(fseeds, 560, 762);
     }
     else if(me.cseed == true){
-      tempx = 28;
+      tempx = 18;
       fill(0);
-      text(cseeds, 944, 762); 
+      text(cseeds, 624, 762); 
     }
-    noFill();
-    rect(size * tempx, 707 , size * 1.8, size * 1.8);
+    image(loadImage("select box.png"),size * tempx - 4, 705 , size * 2, size * 2);
   }
   
   //SELL BUTTON
@@ -105,7 +108,7 @@ void drawItems(){
 }
 
 void drawMoney(){
-  image(coin, 16, 640, 32,32);
+  image(coin, 16, 640, 32,36);
   text(money, 18, 638);
 }
 
