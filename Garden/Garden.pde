@@ -14,6 +14,7 @@ Land[][] map = new Land[35][25];
 int curItem;
 int size = 32;
 int w, h;
+boolean shop = false;
 
 PImage river;
 PImage grass;
@@ -51,10 +52,11 @@ void draw(){
   drawRiver();
   area.plot();
   drawBorder();
-  drawGrid();
+  //drawGrid();
   drawPlayer();
   drawItems();
-  drawMoney();
+  drawtab();
+  drawShop();
   frameRate(20);
   
 }
@@ -63,7 +65,7 @@ void drawItems(){
   fill(255);
   strokeWeight(3);
   stroke(149,104,47);
-  image(loadImage("inventory.png"), size * 11.1, 695, size * 14, size * 2.75);
+  image(loadImage("inventory.png"), size * 11, 695, size * 14, size * 2.75);
    for (int i = 0; i < 6; i++){
     image(loadImage("item box.png"), size * (11.95 + 2 * i) , 705, size * 2, size * 2);
     image(itemPics[i], size * (12.2 + 2* i), 712, size * 1.5, size * 1.5);    //putting all the item icons
@@ -77,26 +79,23 @@ void drawItems(){
   text(corn, 750, 762);
   if(me.nothing != true){
     float tempx = 0;
+    fill(255);
     if(me.hoe == true)
       tempx = 12.1;
     else if(me.can == true){
       tempx = 14;
-      fill(0, 0, 0);
       text(me.getWater(), 495, 762);
     }
     else if(me.fseed == true){
       tempx = 16;
-      fill(0);
       text(fseeds, 560, 762);
     }
     else if(me.cseed == true){
       tempx = 18;
-      fill(0);
       text(cseeds, 624, 762); 
     }
     image(loadImage("select box.png"),size * tempx - 4, 705 , size * 2, size * 2);
   }
-  
   //SELL BUTTON
   stroke(249,224,85);
   strokeWeight(5);
@@ -107,9 +106,18 @@ void drawItems(){
   text("sell fruit", size * 2.3, size * 23.4);
 }
 
-void drawMoney(){
-  image(coin, 16, 640, 32,36);
-  text(money, 18, 638);
+void drawtab(){
+  image(loadImage("drop down menu.png"), size / 2, size / 2, size * 3.5, size * 4);
+  image(coin, 25, 27, 32,36);
+  text(money, size * 2.25, size * 1.7);
+  text("shop", size * 1.35, size * 3.85);
+  image(loadImage("down arrow.png"), size * 1.5, size * 4.5, size * 1.5, size * .85);
+}
+
+void drawShop(){
+  if (shop == true){
+    image(loadImage("shop menu.png"), size * 5, size, size * 20, size * 7);
+  }
 }
 
 void drawPlayer(){
@@ -188,7 +196,13 @@ void mouseClicked(){
          area.changePlot(row,col);
          corn++;
       }
+ 
+      if (mouseX > size / 2 && mouseY > size * 3.85 && row <= 5 && col <= 5){
+        if (shop) shop = false;
+        else shop = true;
     }
+    }
+    //sell
    if(row > 22 && row <=24 && col > 2 && col < 7){
      if (fruit > 0){
        fruit--;
