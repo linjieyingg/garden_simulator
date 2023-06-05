@@ -82,7 +82,7 @@ public class Player{
   }
   
   void fillWater(){
-    while ( water < 5)
+    while ( water < 6)
       water ++;
   }
   

@@ -16,10 +16,7 @@ int size = 32;
 int w, h;
 Land[][] map = new Land[width/size][height/size];
 boolean shop = false;
-<<<<<<< HEAD
-=======
 
->>>>>>> f86a08f9f9ad201347e46a7b49f98675bab96a66
 PImage river;
 PImage grass;
 PImage border;
@@ -29,12 +26,14 @@ Player me;
 PImage[] itemPics ; 
 Land area;
 PFont chandas;
+PFont numbers;
 PImage box;
 
 void setup(){
   background(169,206,150);
   size(1120,800);
-  chandas = createFont("Bold", 12);
+  chandas = createFont("Bold", 25);
+  numbers = loadFont("CenturySchL-Bold-12.vlw");
   w = width/size;
   h = height/size;
   river = loadImage("Water.png");
@@ -58,7 +57,7 @@ void draw(){
   drawRiver();
   area.plot();
   drawBorder();
-  //drawGrid();
+  drawGrid();
   drawItems();
   drawtab();
   drawShop();
@@ -79,10 +78,15 @@ void drawItems(){
   noFill();
   strokeWeight(3);
   stroke(255,247,0);
-  textFont(chandas);
+  textFont(numbers);
   fill(255);
   text(fruit, 686, 758);
   text(corn, 746, 756);
+  textFont(numbers);
+  for (int n = 1; n < 5; n++){
+    text(n, 10 * size + (n * size * 2) + 10, size * 22.6);
+  }
+  
   if(me.nothing != true){
     float tempx = 0;
     fill(255);
@@ -100,7 +104,8 @@ void drawItems(){
       tempx = 18;
       text(cseeds, 624, 762); 
     }
-    image(loadImage("select box.png"), size * tempx, 705 , size * 1.9, size * 1.9);
+    image(loadImage("select box.png"), size * tempx, 706 , size * 1.9, size * 1.9);
+    
   }
   //SELL BUTTON
   stroke(149,104,47);
@@ -113,6 +118,7 @@ void drawItems(){
 }
 
 void drawtab(){
+  textFont(chandas);
   image(loadImage("drop down menu.png"), size / 2, size / 2, size * 3.5, size * 4);
   image(coin, 25, 27, 32,36);
   text(money, size * 2.25, size * 1.7);
@@ -133,7 +139,7 @@ void drawPlayer(){
 
 void drawRiver(){
   for(int x = 0 ; x < width; x+= 128){
-    for(int y = 546; y < height; y += 32){
+    for(int y = 578; y < height; y += 32){
       image(river, x, y, 128, 32);
     }
   }
