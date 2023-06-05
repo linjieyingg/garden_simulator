@@ -14,12 +14,8 @@ int money;
 int curItem;
 int size = 32;
 int w, h;
-<<<<<<< HEAD
 Land[][] map = new Land[width/size][height/size];
-=======
 boolean shop = false;
->>>>>>> ab0648b47252a8c6005b3672057d984036964548
-
 PImage river;
 PImage grass;
 PImage border;
@@ -123,6 +119,7 @@ void drawtab(){
 void drawShop(){
   if (shop == true){
     image(loadImage("shop menu.png"), size * 5, size, size * 20, size * 7);
+    image(loadImage("seller emote.png"), size * 7, size * 2, size * 4, size * 4);
   }
 }
 
