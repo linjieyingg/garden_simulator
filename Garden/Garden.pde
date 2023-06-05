@@ -16,10 +16,6 @@ int size = 32;
 int w, h;
 Land[][] map = new Land[width/size][height/size];
 boolean shop = false;
-<<<<<<< HEAD
-=======
-
->>>>>>> f86a08f9f9ad201347e46a7b49f98675bab96a66
 PImage river;
 PImage grass;
 PImage border;
@@ -40,7 +36,6 @@ void setup(){
   river = loadImage("Water.png");
   grass = loadImage("Grass.png");
   border = loadImage("grassborder.png");
-  coin = loadImage("coin.png");
   fseeds = 3;
   cseeds = 3;
   corn = 0;
@@ -59,10 +54,10 @@ void draw(){
   area.plot();
   drawBorder();
   //drawGrid();
+  drawPlayer();
   drawItems();
   drawtab();
   drawShop();
-  drawPlayer();
   frameRate(20);
   
 }
@@ -114,7 +109,7 @@ void drawItems(){
 
 void drawtab(){
   image(loadImage("drop down menu.png"), size / 2, size / 2, size * 3.5, size * 4);
-  image(coin, 25, 27, 32,36);
+  image(loadImage("coin.png"), 25, 27, 32,36);
   text(money, size * 2.25, size * 1.7);
   text("shop", size * 1.35, size * 3.85);
   image(loadImage("down arrow.png"), size * 1.5, size * 4.5, size * 1.5, size * .85);
@@ -122,8 +117,13 @@ void drawtab(){
 
 void drawShop(){
   if (shop == true){
-    image(loadImage("shop menu.png"), size * 5, size, size * 20, size * 7);
-    image(loadImage("seller emote.png"), size * 7, size * 2, size * 4, size * 4);
+    image(loadImage("shop menu.png"), size * 6, size, size * 20, size * 7);
+    image(loadImage("seller emote.png"), size * 7.75, size * 2.5, size * 3.75, size * 3.75);
+    image(loadImage("shop inventory.png"), size * 6, size * 8, size * 20, size * 6);
+    image(loadImage("wood box.png"), size * 7.5, size * 8.5, size * 3, size *3);
+    image(loadImage("wood box.png"), size * 11.5, size * 8.5, size * 3, size *3);
+    image(loadImage("coin.png"), size * 7.5, size * 11, size/2, size);
+    image(loadImage("coin.png"), size * 11.5, size * 11, size/2, size);
   }
 }
 
