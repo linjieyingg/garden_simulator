@@ -16,6 +16,10 @@ int size = 32;
 int w, h;
 Land[][] map = new Land[width/size][height/size];
 boolean shop = false;
+<<<<<<< HEAD
+=======
+
+>>>>>>> f86a08f9f9ad201347e46a7b49f98675bab96a66
 PImage river;
 PImage grass;
 PImage border;
@@ -55,10 +59,10 @@ void draw(){
   area.plot();
   drawBorder();
   //drawGrid();
-  drawPlayer();
   drawItems();
   drawtab();
   drawShop();
+  drawPlayer();
   frameRate(20);
   
 }
@@ -70,23 +74,23 @@ void drawItems(){
   image(loadImage("inventory.png"), size * 11, 695, size * 14, size * 2.75);
    for (int i = 0; i < 6; i++){
     image(loadImage("item box.png"), size * (11.95 + 2 * i) , 705, size * 2, size * 2);
-    image(itemPics[i], size * (12.2 + 2* i), 712, size * 1.5, size * 1.5);    //putting all the item icons
+    image(itemPics[i], size * (12.4 + 2* i), 718, size * 1.2, size * 1.2);    //putting all the item icons
   }
   noFill();
   strokeWeight(3);
   stroke(255,247,0);
   textFont(chandas);
-  fill(0);
-  text(fruit, 690, 762);
-  text(corn, 750, 762);
+  fill(255);
+  text(fruit, 686, 758);
+  text(corn, 746, 756);
   if(me.nothing != true){
     float tempx = 0;
     fill(255);
     if(me.hoe == true)
-      tempx = 12.1;
+      tempx = 12;
     else if(me.can == true){
       tempx = 14;
-      text(me.getWater(), 495, 762);
+      text(me.getWater(), 490, 762);
     }
     else if(me.fseed == true){
       tempx = 16;
@@ -96,7 +100,7 @@ void drawItems(){
       tempx = 18;
       text(cseeds, 624, 762); 
     }
-    image(loadImage("select box.png"),size * tempx - 4, 705 , size * 2, size * 2);
+    image(loadImage("select box.png"), size * tempx, 705 , size * 1.9, size * 1.9);
   }
   //SELL BUTTON
   stroke(149,104,47);
