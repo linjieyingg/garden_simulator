@@ -30,6 +30,7 @@ PFont numbers;
 PImage box;
 PImage[] waterbars;
 int curWater;
+PImage waterdrop;
 
 void setup(){
   background(169,206,150);
@@ -56,6 +57,7 @@ void setup(){
   loadImage("two water bar.png"), loadImage("three water bar.png"),
   loadImage("four water bar.png"), loadImage("five water bar.png"), loadImage("full water bar.png")
   };
+  
 }
 
 void draw(){
@@ -101,10 +103,7 @@ void drawItems(){
       tempx = 14;
       text(me.getWater(), 490, 762);
       curWater = me.getWater();
-      pushMatrix();
-      rotate(PI);
-      image(waterbars[curWater], 14 * size, 675, 64, 30);
-      popMatrix();
+      image(waterbars[curWater], 30 * size, 0, 96, 40);
     }
     else if(me.fseed == true){
       tempx = 16;
