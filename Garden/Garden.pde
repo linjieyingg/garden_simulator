@@ -145,6 +145,9 @@ void drawShop(){
     image(loadImage("wood box.png"), size * 11.5, size * 8.5, size * 3, size *3);
     image(loadImage("coin.png"), size * 7.75, size * 11.35, size/1.2, size);
     image(loadImage("coin.png"), size * 11.75, size * 11.35, size/1.2, size);
+    //fruit seeds = 12 corn seeds = 25;
+    image(loadImage("fruit seeds.png"), size, size, size , size);
+    image(loadImage("corn seeds.png"), size, size, size, size);
   }
 }
 
