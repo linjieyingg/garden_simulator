@@ -16,10 +16,7 @@ int size = 32;
 int w, h;
 Land[][] map = new Land[width/size][height/size];
 boolean shop = false;
-<<<<<<< HEAD
 
-=======
->>>>>>> 6a44217d2d057022b09ea6bad199ecde63b3aa99
 PImage river;
 PImage grass;
 PImage border;
@@ -31,6 +28,8 @@ Land area;
 PFont chandas;
 PFont numbers;
 PImage box;
+PImage[] waterbars;
+int curWater;
 
 void setup(){
   background(169,206,150);
@@ -53,18 +52,18 @@ void setup(){
                               loadImage("fruit icon.png"), loadImage("corn icon.png")};
   area = new Land();
   box = loadImage("dialog.png");
+  waterbars = new PImage[]{loadImage("empty water bar.png"), loadImage("one water bar.png"),
+  loadImage("two water bar.png"), loadImage("three water bar.png"),
+  loadImage("four water bar.png"), loadImage("five water bar.png"), loadImage("full water bar.png")
+  };
 }
 
 void draw(){
   drawRiver();
   area.plot();
   drawBorder();
-<<<<<<< HEAD
   drawGrid();
-=======
-  //drawGrid();
   drawPlayer();
->>>>>>> 6a44217d2d057022b09ea6bad199ecde63b3aa99
   drawItems();
   drawtab();
   drawShop();
@@ -101,6 +100,11 @@ void drawItems(){
     else if(me.can == true){
       tempx = 14;
       text(me.getWater(), 490, 762);
+      curWater = me.getWater();
+      pushMatrix();
+      rotate(PI);
+      image(waterbars[curWater], 14 * size, 675, 64, 30);
+      popMatrix();
     }
     else if(me.fseed == true){
       tempx = 16;
