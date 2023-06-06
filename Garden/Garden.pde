@@ -142,8 +142,8 @@ void drawShop(){
     image(loadImage("shop inventory.png"), size * 6, size * 8, size * 20, size * 6);
     image(loadImage("wood box.png"), size * 7.5, size * 8.5, size * 3, size *3);
     image(loadImage("wood box.png"), size * 11.5, size * 8.5, size * 3, size *3);
-    image(loadImage("coin.png"), size * 7.5, size * 11, size/2, size);
-    image(loadImage("coin.png"), size * 11.5, size * 11, size/2, size);
+    image(loadImage("coin.png"), size * 7.75, size * 11.35, size/1.2, size);
+    image(loadImage("coin.png"), size * 11.75, size * 11.35, size/1.2, size);
   }
 }
 
