@@ -71,7 +71,7 @@ public class Land {
   void stepOn(PVector gridPos){
     int r = (int) gridPos.y;
     int c = (int) gridPos.x;
-    plot[r][c] = 1;  
+    plot[r][c] = 1;
   }
   
   boolean canStep(PVector gridPos){
