@@ -57,7 +57,7 @@ void setup(){
   loadImage("two water bar.png"), loadImage("three water bar.png"),
   loadImage("four water bar.png"), loadImage("five water bar.png"), loadImage("full water bar.png")
   };
-  
+  waterdrop = loadImage("waterdrop.png");
 }
 
 void draw(){
@@ -103,6 +103,7 @@ void drawItems(){
       tempx = 14;
       text(me.getWater(), 490, 762);
       curWater = me.getWater();
+      image(waterdrop, 29.5 * size, 0, 30, 40);
       image(waterbars[curWater], 30 * size, 0, 96, 40);
     }
     else if(me.fseed == true){
