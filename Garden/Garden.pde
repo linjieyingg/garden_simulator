@@ -16,12 +16,10 @@ int size = 32;
 int w, h;
 Land[][] map = new Land[width/size][height/size];
 boolean shop = false;
-<<<<<<< HEAD
+
 int curMode = 0; //0 - player On, 1 - player off
-=======
 //String dialogue = "Hello, dear customer...";
 //PImage buysellcheck = loadImage("inventory.png");
->>>>>>> 3b12945e659896dc272e53ea1f34b1e76f9775f3
 
 PImage river;
 PImage grass;
