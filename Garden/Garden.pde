@@ -16,6 +16,8 @@ int size = 32;
 int w, h;
 Land[][] map = new Land[width/size][height/size];
 boolean shop = false;
+
+int curMode = 0; //0 - player On, 1 - player off
 //String dialogue = "Hello, dear customer...";
 //PImage buysellcheck = loadImage("inventory.png");
 
@@ -63,8 +65,8 @@ void setup(){
 }
 
 void draw(){
-  drawRiver();
   area.plot();
+  drawRiver();
   drawBorder();
   drawGrid();
   drawItems();
@@ -171,6 +173,16 @@ void drawPlayer(){
 }
 
 void drawRiver(){
+  for(int x = 0 ; x < 4 * size ; x+= 128){
+    for(int y = 0; y < 578; y += 32){
+      image(river, x, y, 128, 32);
+    }
+  }
+  for(int x = width - 4*size ; x < width ; x+= 128){
+    for(int y = 0; y < 578; y += 32){
+      image(river, x, y, 128, 32);
+    }
+  }
   for(int x = 0 ; x < width; x+= 128){
     for(int y = 578; y < height; y += 32){
       image(river, x, y, 128, 32);
@@ -184,8 +196,8 @@ void drawBorder(){
       image(grass, x, y, 96, 32);
     }
   }*/
-  for(int x = 0; x < width; x += 2080){
-    image(border, x, 576, 3000, 15);
+  for(int x = 4*size; x < width; x += 2080){
+    image(border, x, 576, 864, 15);
   }
 }
 
@@ -253,8 +265,14 @@ void mouseClicked(){
       }
  
       if (mouseX > size / 2 && mouseY > size * 3.85 && row <= 5 && col <= 5){
-        if (shop) shop = false;
-        else shop = true;
+        if (shop) {
+          shop = false;
+          curMode = 0;  
+        }
+        else {
+          shop = true;
+          curMode = 1;  
+        }
     }
     }
     //sell
@@ -282,49 +300,51 @@ void mouseClicked(){
 }
 
 void keyPressed (){
-  if((key == 'W' || key == 'w') && me.getPos().y > 0){
-    me.direction(0); // up
-    if (area.canStep(me.getGridPos())){
-      area.stepOn(me.getGridPos());
-      //step();
+  if(curMode == 0){
+    if((key == 'W' || key == 'w') && me.getPos().y > 0){
+      me.direction(0); // up
+      if (area.canStep(me.getGridPos())){
+        area.stepOn(me.getGridPos());
+        //step();
+      }
     }
-  }
-  if((key == 'S' || key == 's') && me.getPos().y <= 512){
-    me.direction(1); // down
-    if (area.canStep(me.getGridPos())){
-      area.stepOn(me.getGridPos());
-      step();
+    if((key == 'S' || key == 's') && me.getPos().y <= 512){
+      me.direction(1); // down
+      if (area.canStep(me.getGridPos())){
+        area.stepOn(me.getGridPos());
+        step();
+      }
     }
-  }
-  if((key == 'A' || key == 'a') && me.getPos().x > 0){
-    me.direction(2); //left
-    if (area.canStep(me.getGridPos())){
-      area.stepOn(me.getGridPos());
-      step();
+    if((key == 'A' || key == 'a') && me.getPos().x > 4 * size){
+      me.direction(2); //left
+      if (area.canStep(me.getGridPos())){
+        area.stepOn(me.getGridPos());
+        step();
+      }
     }
-  }
-  if((key == 'D' || key == 'd') && me.getPos().x < width - size){
-    me.direction(3); //right
-    if (area.canStep(me.getGridPos())){
-      area.stepOn(me.getGridPos());
-      step();
+    if((key == 'D' || key == 'd') && me.getPos().x < width - size - 4*size){
+      me.direction(3); //right
+      if (area.canStep(me.getGridPos())){
+        area.stepOn(me.getGridPos());
+        step();
+      }
     }
-  }
-  if(key == '1'){
-    me.equip(1);
-  } 
-  if(key == '2'){
-    me.equip(2);
-  }
-  if(key == '3'){
-    me.equip(3);
-  }
-  if(key == '4'){
-    me.equip(4); 
-  }
-  if(key == 'e' || key == 'E'){
-    if(me.getCan() && me.getPos().y == 544){
-      me.fillWater();
+    if(key == '1'){
+      me.equip(1);
+    } 
+    if(key == '2'){
+      me.equip(2);
+    }
+    if(key == '3'){
+      me.equip(3);
+    }
+    if(key == '4'){
+      me.equip(4); 
+    }
+    if(key == 'e' || key == 'E'){
+      if(me.getCan() && me.getPos().y == 544){
+        me.fillWater();
+      }
     }
   }
 }
