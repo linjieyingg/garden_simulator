@@ -288,12 +288,13 @@ void mouseClicked(){
      }
    }
    //buy fruit  
-   if(row >= 8 && row <= 10 && col >= 13 && col <= 14 && shop == true && money >= 12){
+   // size * 7.9, size * 12.5, size * 2, size)
+   if(row >= 13 && row <= 14 && col >= 8 && col <= 10 && shop == true && money >= 12){
      fseeds++;
      money -= 12;
      //size * 12, size * 12.5,size * 2, size);
    }
-   if(row >= 12 && row <= 14 && col >= 13 && col <= 14 && shop == true && money >= 25){
+   if(row >= 13 && row <= 14 && col >= 12 && col <= 14 && shop == true && money >= 25){
      cseeds++;
      money -= 25;
    }
