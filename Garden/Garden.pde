@@ -24,6 +24,8 @@ int curMode = 0; //0 - player On, 1 - player off
 PImage river;
 PImage grass;
 PImage border;
+PImage borderR;
+PImage borderL;
 PImage coin;
 Player me;
 
@@ -62,6 +64,7 @@ void setup(){
   loadImage("four water bar.png"), loadImage("five water bar.png"), loadImage("full water bar.png")
   };
   waterdrop = loadImage("water drop.png");
+  borderR = loadImage("right border.png");
 }
 
 void draw(){
@@ -196,8 +199,12 @@ void drawBorder(){
       image(grass, x, y, 96, 32);
     }
   }*/
-  for(int x = 4*size; x < width; x += 2080){
-    image(border, x, 576, 864, 15);
+  for(int y = 0; y < 542; y += 32){
+    image(borderR, 31 * size, y, 15, 64);
+  }
+  image(borderR, 31 * size, 526, 15, 64);
+  for(int x = 4*size; x < width -  5*size; x += 32){
+    image(border, x, 576, 64, 15);
   }
 }
 
