@@ -16,7 +16,12 @@ int size = 32;
 int w, h;
 Land[][] map = new Land[width/size][height/size];
 boolean shop = false;
+<<<<<<< HEAD
 int curMode = 0; //0 - player On, 1 - player off
+=======
+//String dialogue = "Hello, dear customer...";
+//PImage buysellcheck = loadImage("inventory.png");
+>>>>>>> 3b12945e659896dc272e53ea1f34b1e76f9775f3
 
 PImage river;
 PImage grass;
@@ -67,9 +72,9 @@ void draw(){
   drawBorder();
   drawGrid();
   drawItems();
+  drawPlayer();
   drawtab();
   drawShop();
-  drawPlayer();
   frameRate(20);
   
 }
@@ -90,7 +95,6 @@ void drawItems(){
   fill(255);
   text(fruit, 686, 758);
   text(corn, 746, 756);
-  textFont(numbers);
   for (int n = 1; n < 5; n++){
     text(n, 10 * size + (n * size * 2) + 10, size * 22.6);
   }
@@ -118,14 +122,8 @@ void drawItems(){
     image(loadImage("select box.png"), size * tempx, 706 , size * 1.9, size * 1.9);
     
   }
-  //SELL BUTTON
-  stroke(149,104,47);
-  strokeWeight(3);
-  fill(247,230,134);
-  rect(size * 2, size * 22, size * 4, size * 2);
-  fill(255);
-  textSize(25);
-  text("sell fruit", size * 2.4, size * 23.4);
+  text(fseeds, size * 17.5, size * 23.75);
+  text(cseeds, size * 19.5, size * 23.75);
 }
 
 void drawtab(){
@@ -147,8 +145,28 @@ void drawShop(){
     image(loadImage("coin.png"), size * 7.75, size * 11.35, size/1.2, size);
     image(loadImage("coin.png"), size * 11.75, size * 11.35, size/1.2, size);
     //fruit seeds = 12 corn seeds = 25;
-    image(loadImage("fruit seeds.png"), size, size, size , size);
-    image(loadImage("corn seeds.png"), size, size, size, size);
+    image(loadImage("fruit seeds.png"), size * 8.35, size * 9.45, size * 1.25, size * 1.25);
+    image(loadImage("corn seeds.png"), size * 12.35, size * 9.45, size * 1.25, size * 1.25);
+     //IMPLEMENT IN MOUSE CLICKED?? if buy box is clicked then change to check mark and x mark,
+     //change dialogue as well
+    image(loadImage("inventory.png"), size * 7.9, size * 12.5, size * 2, size);
+    image(loadImage("inventory.png"), size * 12, size * 12.5,size * 2, size);
+    stroke(149,104,47);
+    strokeWeight(3);
+    fill(247,230,134);
+    rect(size * 18, size * 10, size * 4, size * 2);
+    fill(255);
+    textSize(25);
+    text("sell fruit", size * 18.4, size * 11.25);
+    textSize(23);
+    text("12", size * 8.75, size * 12.15);
+    text("25", size * 12.75, size * 12.15);
+    textSize(20);
+    text("BUY", size * 8.25, size * 13.15);
+    text("BUY", size * 12.35, size * 13.15);
+    textSize(25);
+    text("Hello, dear customer...", size * 14, size * 5);
+    
   }
 }
 
@@ -260,7 +278,8 @@ void mouseClicked(){
     }
     }
     //sell
-   if(row > 22 && row <=24 && col > 2 && col < 7){
+    //size * 18, size * 10, size * 4, size * 2
+   if(row >= 10 && row <=12 && col >= 18 && col <= 22){
      if (fruit > 0){
        fruit--;
        money += 20;
@@ -269,6 +288,16 @@ void mouseClicked(){
        corn--;
        money += 45;
      }
+   }
+   //buy fruit  
+   if(row >= 8 && row <= 10 && col >= 13 && col <= 14 && shop == true && money >= 12){
+     fseeds++;
+     money -= 12;
+     //size * 12, size * 12.5,size * 2, size);
+   }
+   if(row >= 12 && row <= 14 && col >= 13 && col <= 14 && shop == true && money >= 25){
+     cseeds++;
+     money -= 25;
    }
 }
 
