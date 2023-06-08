@@ -229,15 +229,6 @@ void drawGrid(){
   }
 }
 
-void step(){
-    image(box, me.pos.x + size, me.pos.y, 176, 48);
-}
-
-
-void buy(){
-   
-}
-
 void mouseClicked(){
     //*MAKE THE GRASS INTO DIRT
     int col = mouseX / size;
@@ -328,21 +319,18 @@ void keyPressed (){
       me.direction(1); // down
       if (area.canStep(me.getGridPos())){
         area.stepOn(me.getGridPos());
-        step();
       }
     }
     if((key == 'A' || key == 'a') && me.getPos().x > 4 * size){
       me.direction(2); //left
       if (area.canStep(me.getGridPos())){
         area.stepOn(me.getGridPos());
-        step();
       }
     }
     if((key == 'D' || key == 'd') && me.getPos().x < width - size - 4*size){
       me.direction(3); //right
       if (area.canStep(me.getGridPos())){
         area.stepOn(me.getGridPos());
-        step();
       }
     }
     if(key == '1'){
@@ -358,7 +346,8 @@ void keyPressed (){
       me.equip(4); 
     }
     if(key == 'e' || key == 'E'){
-      if(me.getCan() && me.getPos().y == 544){
+      if(me.getCan() && (me.getPos().y == 544 || me.getPos().x == size * 4 || 
+                                                 me.getPos().x == size * 30) ){
         me.fillWater();
       }
     }
