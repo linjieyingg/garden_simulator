@@ -132,7 +132,9 @@ void drawtab(){
   textFont(chandas);
   image(loadImage("drop down menu.png"), size / 2, size / 2, size * 3.5, size * 4);
   image(loadImage("coin.png"), 25, 27, 32,36);
-  text(money, size * 2.25, size * 1.7);
+  imageMode(CENTER);
+  text(money, size * 2, size * 1.75);
+  imageMode(CORNER);
   text("shop", size * 1.35, size * 3.85);
   image(loadImage("down arrow.png"), size * 1.5, size * 4.5, size * 1.5, size * .85);
 }
