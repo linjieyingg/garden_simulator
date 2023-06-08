@@ -1,5 +1,5 @@
 public class Land {
-  PImage[] stage = new PImage[]{ loadImage("Grass.png"), 
+  private PImage[] stage = new PImage[]{ loadImage("Grass.png"), 
     loadImage("dirt square.png"),
     loadImage("fruit bud.png"), loadImage("fruit sprout.png"),
     loadImage("fruit young.png"),loadImage("fruit adult.png"),
@@ -7,9 +7,9 @@ public class Land {
     loadImage("corn young.png"), loadImage("corn adult.png")
     };
   
-  int[][] plot = new int[18][35];
-  int curStage;
-  int size = 32;
+  private int[][] plot = new int[18][35];
+  private int curStage;
+  private int size = 32;
 
   public Land(){
      curStage = 0;

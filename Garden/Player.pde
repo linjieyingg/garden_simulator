@@ -1,18 +1,18 @@
 public class Player{
-  PImage[] charImg = new PImage[]{ loadImage("up.png"), loadImage("down.png"),
+  private PImage[] charImg = new PImage[]{ loadImage("up.png"), loadImage("down.png"),
                                   loadImage("left.png"), loadImage("right.png"),
                                   loadImage("hoeB.png"), loadImage("hoeF.png"),
                                   loadImage("hoeL.png"), loadImage("hoeR.png"),
                                   loadImage("canB.png"), loadImage("canF.png"),
                                   loadImage("canL.png"), loadImage("canR.png")};  
-  int curImg; // to access PImage in the array
-  PVector pos; //position of character
-  PVector gridPos;
-  PVector dir = new PVector(0,0);
-  int nDir;
-  int size = 32;
-  int water; // # of plants player can water
-  boolean nothing, hoe, can, fseed, cseed; //equipped status
+  private int curImg; // to access PImage in the array
+  private PVector pos; //position of character
+  private PVector gridPos;
+  private PVector dir = new PVector(0,0);
+  private int nDir;
+  private int size = 32;
+  private int water; // # of plants player can water
+  private boolean nothing, hoe, can, fseed, cseed; //equipped status
   
   public Player(){
     curImg = 1;
