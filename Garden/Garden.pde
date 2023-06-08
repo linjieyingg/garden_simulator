@@ -271,8 +271,9 @@ void mouseClicked(){
          area.changePlot(row,col);
          corn++;
       }
- 
-      if (mouseX > size / 2 && mouseY > size * 3.85 && row <= 5 && col <= 5){
+       // shop
+      if (mouseX > size * 1.5 && mouseY > size * 3.85 && 
+          mouseY < 5.5 * size && mouseX < 3 * size){
         if (shop) {
           shop = false;
           curMode = 0;  
