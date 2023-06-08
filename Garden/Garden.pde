@@ -65,6 +65,7 @@ void setup(){
   };
   waterdrop = loadImage("water drop.png");
   borderR = loadImage("right border.png");
+  borderL = loadImage("left border.png");
 }
 
 void draw(){
@@ -109,8 +110,8 @@ void drawItems(){
       tempx = 14;
       text(me.getWater(), 490, 762);
       curWater = me.getWater();
-      image(waterdrop, 29 * size, 0, 30, 40);
-      image(waterbars[curWater], 30 * size, 0, 96, 40);
+      image(waterdrop, 31 * size, 0, 30, 40);
+      image(waterbars[curWater], 32 * size, 0, 96, 40);
     }
     else if(me.fseed == true){
       tempx = 16;
@@ -154,11 +155,14 @@ void drawShop(){
     image(loadImage("inventory.png"), size * 12, size * 12.5,size * 2, size);
     stroke(149,104,47);
     strokeWeight(3);
-    fill(247,230,134);
-    rect(size * 18, size * 10, size * 4, size * 2);
+    //sell button
+    //fill(237, 210, 168);
+    //rect(size * 18, size * 10, size * 4, size * 2);
+    image(loadImage("inventory.png"), size * 17.5, size * 10, size * 5, size * 2);
     fill(255);
     textSize(25);
     text("sell fruit", size * 18.4, size * 11.25);
+    
     textSize(23);
     text("12", size * 8.75, size * 12.15);
     text("25", size * 12.75, size * 12.15);
@@ -206,6 +210,10 @@ void drawBorder(){
   for(int x = 4*size; x < width -  5*size; x += 32){
     image(border, x, 576, 64, 15);
   }
+  for(int y = 0; y < 542; y += 32){
+    image(borderL, 3.5* size, y, 15, 64);
+  }
+  image(borderL, 3.5* size, 526, 15, 64);
 }
 
 
@@ -283,8 +291,8 @@ void mouseClicked(){
     }
     }
     //sell
-    //size * 18, size * 10, size * 4, size * 2
-   if(row >= 10 && row <=12 && col >= 18 && col <= 22){
+    //size * 17.5, size * 10, size * 5, size * 2
+   if(row >= 10 && row <=12 && mouseX >= 17.5 * size && col <= 22.5 * size){
      if (fruit > 0){
        fruit--;
        money += 20;
