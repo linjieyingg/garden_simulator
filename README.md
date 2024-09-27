@@ -1,14 +1,9 @@
-# final_project
-Name 1: Jieying Lin
+# Garden Simulator
+### Jieying Lin
+Email: linjieying96@gmail.com
+GitHub Username: linjieyingg
 
-Email: jlin41@stuy.edu
-
-username: linjieyingg
-
-Name 2: Vanessa Huang
-
+### Vanessa Huang
 Email: vhuang40@stuy.edu
+GitHub Username: nesquik2
 
-username: nesquik2
-
-Period: 3
